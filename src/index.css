@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: rgb(233,235,238);
+
+
+}
+.div{
+  display: block;
+}
+#root{
+  margin: 0;
+  top:0;
+}
+h1 {
+ font-size: 14px;
+  margin:0;
+}
+
+h2 {
+  font-size: 12px;
+  margin:0;
+}
+/*********NAVBAR BODY ***************/
+.navbarbody {
+  height: 44px;
+  width: 100%;
+  z-index: 10;
+  border-bottom: 1px rgba(216,216,216,1) solid;
+  position: fixed;
+  top: 0;
+  background: white;
+  height: 6%;
+  color: #FFFFFF;
+}
+.navbarbody .navbar{
+  display: flex;
+  background: rgba(64,183,223,1);
+  background-color: rgba(64,183,223,1);
+  margin: 0 0;
+  box-sizing: border-box;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  width: 100%;
+  height: 100%;
+
+}
+/*********NAVBAR BODY ***************/
+.content{
+  padding-top: 40px;
+  height: auto;
+}
+::-webkit-scrollbar{
+  width: 0px;
+  background: transparent;
+}
+.trip-content{
+  padding-top: 20px;
+  display: flex;
+  overflow: auto;
+  align-items: flex-start;
+  height:100%;
+  width: auto;
+
+  position: relative;
+}
+
+.placed-trip-guide{
+  display: flex;
+  align-items: flex-start;
+  flex: 0 auto;
+  width: auto;
+  height: auto;
+  flex-wrap:nowrap;
+  box-sizing: border-box;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  flex-direction: row;
+  padding: 0 0 3% 3%;
+  margin: 0 0 -35px 0;
+
+}
+.recommencetripbyguide{
+  padding: 5% 5%;
+}
+.recommencetripbyguide h1{
+  font-size: 2em;
+}
+ .trip-guide{
+  flex: 0 0 auto;
+   width: 40%;
+   margin: 0 20px 0 0;
+   padding: 0 0 10% 0;
+   display: flex;
+   align-content: flex-start;
+   flex-direction: column;
+   align-items: center;
+   flex-wrap: wrap;
+   box-shadow: 0 1px 1px   rgb(0,0,0,3);
+   text-align: center;
+
+}
+.trip-guide.pictureshowdown{
+  width: 100%;
+  height: 50%;
+}
+.trip-content .img{
+  width: 100%;
+  height: 81px;
+  position: relative;
+  background-size: cover;
+
+
+}
+.content .header{
+  background-image: url('http://static.asiawebdirect.com/m/phuket/portals/phuket-com/shared/teasersL/TOP10/10-best-tours/teaserMultiLarge/imageHilight/best-tours-phuket-L.jpg');
+  padding-top: 50%;
+  background-repeat: no-repeat;
+  position: relative;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+
+
+}
+@media screen and (min-width: 850px){
+  .content.header{
+      background-size: cover;
+  }
+}
+/*********FOOTER BODY ***************/
+.footerbody{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    z-index: 8;
+    border-top: 1px rgba(216,216,216,1) solid;
+}
+.footerbody .footer{
+  flex: 0 auto;
+  background-color: white;
+  margin: 0 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  align-items: baseline;
+  width: auto;
+  height: 50px;
+  background: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+/*********FOOTER BODY ***************/
