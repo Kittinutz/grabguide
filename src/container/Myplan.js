@@ -5,17 +5,25 @@ import {
     Form, Select, InputNumber, Switch, Radio,
     Slider, Button, Upload, Icon, Rate,
 } from 'antd';
-
+import _ from 'lodash';
+import {connect} from 'react-redux';
+import * as actions from '../action'
 const FormItem = Form.Item;
 const Option = Select.Option;
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
-
+const place = [];
+const activities = [];
 class Myplan extends Component {
     constructor(props) {
         super(props);
+        this.state={
+            place:[],
+        }
     }
-
+    componentWillMount(){
+        this.props.GetPlaceApi();
+    };
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
@@ -24,6 +32,11 @@ class Myplan extends Component {
             }
         });
     }
+    handleChange = (value)=>{
+       console.log(value);
+
+    };
+
 
     render() {
         // const { getFieldDecorator } = this.props.form;
@@ -32,24 +45,37 @@ class Myplan extends Component {
             wrapperCol: {span: 14},
             marginLeft: 20,
         };
+        if(this.props.place.places){
+           _.map(this.props.place.places,value=>{
+               place.push(<Option key={value.id} value={value.id}>{value.name}</Option>)
+           });
+        }
         return (
             <div>
                 <Header icon="plus-circle-o"/>
                 <div className="content">
                     <div className="container">
+                        <div className="form-myplan">
                         <Form onSubmit={this.handleSubmit}>
                             <FormItem
                                 {...formItemLayout}
                                 label="Choose Your Place interesting"
                             >
-                                <Select mode="multiple" placeholder="Please select You Place interestin">
-                                    <Option value="red">Red</Option>
-                                    <Option value="green">Green</Option>
-                                    <Option value="blue">Blue</Option>
+                                <Select mode="multiple" placeholder="Please select Your Place interesting" onChange={this.handleChange}>
+                                    {place}
                                 </Select>
                             </FormItem>
-                            
+                            <FormItem
+                                {...formItemLayout}
+                                label="Choose Your favourite Activities"
+                            >
+                                <Select mode="multiple" placeholder="Please select Your favourite Activities" onChange={this.handleChange}>
+                                    {place}
+                                </Select>
+                            </FormItem>
+
                         </Form>
+                        </div>
                     </div>
                 </div>
                 <Footer/>
@@ -57,5 +83,11 @@ class Myplan extends Component {
         )
     }
 }
+function mapStateToProps({place}) {
+    return{
+        place,
+    }
 
-export default Myplan;
+}
+
+export default connect(mapStateToProps,actions)(Myplan);
