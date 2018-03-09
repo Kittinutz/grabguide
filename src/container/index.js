@@ -1,22 +1,39 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import * as actions from '../action';
 import Footer from '../component/Footer';
 import Header from '../component/Header';
-import Tripcontent from  '../component/Tripcontent';
+import Tripcontent from '../component/Tripcontent';
+import Guidecontent from '../component/Guidecontent';
+import Communitybase from '../component/Communitybase';
+
 class Home extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    componentWillMount() {
+        this.props.Gettripapi();
+        this.props.Getguideapi();
+    }
+
     render() {
         return (
             <div>
-                <Header/>
+                <Header icon="search"/>
                 <div className="content">
                     <div className="content header">
                         <h1>content pic bg</h1>
                     </div>
-                    <div className="recommencetripbyguide">
-                        <h1>Recommence Trip</h1>
-                    </div>
-                    <Tripcontent/>
-                    <div className="">
-                        <h1>ggwp</h1>
+                    <Tripcontent trips={this.props.trip.trips}/>
+                    <div className="container">
+                        <div className="recommencetripbyguide">
+                            <h2>Community Base Tourism</h2>
+                        </div>
+                        <Communitybase trips={this.props.trip.trips}/>
+
+                        {/*Guide*/}
+                        <Guidecontent guides={this.props.guide.guides}/>
                     </div>
                 </div>
                 <Footer/>
@@ -25,4 +42,11 @@ class Home extends Component {
     }
 }
 
-export default Home;
+function mapStateToProps({trip, guide}) {
+    return {
+        trip,
+        guide
+    }
+}
+
+export default connect(mapStateToProps, actions)(Home);
