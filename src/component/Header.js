@@ -10,8 +10,8 @@ class Header extends Component{
                         <h1>GRAB GUIDE</h1>
                     </div>
                     <div className="icon">
+                        <a  onClick={this.props.handleClick}><Icon  type={this.props.icon} style={{fontSize:20}} /></a>
 
-                        <Icon type={this.props.icon} style={{fontSize:20}}/>
                     </div>
                    </div>
 

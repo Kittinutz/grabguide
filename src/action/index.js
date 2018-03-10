@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {API_TRIP,API_GUIDE,API_PLACE} from './api';
+import {API_TRIP,API_GUIDE,API_PLACE,API_ACTIVITIES} from './api';
 const ROOT_URL = 'http://dev.werapun.com:5011';
 
 
@@ -37,4 +37,14 @@ export function GetPlaceApi() {
         })
     }
 
+}
+export function GetActivitiesAPi(){
+    return dispatch=>{
+        axios.get(`${ROOT_URL}/api/getactivities`).then(response=>{
+            dispatch({
+                type:API_ACTIVITIES,
+                payload:response.data
+            })
+        })
+    }
 }

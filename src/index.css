@@ -39,10 +39,13 @@ h2 {
   color: #FFFFFF;
 
 }
+.icon a{
+    color: #ffffff !important;
+}
 .icon{
     order:1;
     align-content: flex-end;
-    margin: 0 0 0 40%;
+    margin: 0 0 0 45%;
 }
 .logo{
     margin:0% 10%;
