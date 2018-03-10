@@ -20,7 +20,7 @@ import {
 import Home from './container';
 import Myplan from './container/Myplan';
 import Express from './container/Express'
-
+import Trip from './container/Trip';
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 const store = createStoreWithMiddleware(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
@@ -29,6 +29,7 @@ ReactDOM.render((
         <BrowserRouter>
             <HashRouter>
                 <Switch>
+                    <Route path="/trip/:id" component={Trip}/>
                     <Route path="/myplan" component={Myplan}/>
                     <Route path="/express" component={Express}/>
                     <Route path="/" component={Home} />

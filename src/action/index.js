@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {API_TRIP,API_GUIDE,API_PLACE,API_ACTIVITIES} from './api';
+import {API_TRIP,API_GUIDE,API_PLACE,API_ACTIVITIES,TRIP_SELECTED} from './api';
 const ROOT_URL = 'http://dev.werapun.com:5011';
 
 
@@ -47,4 +47,15 @@ export function GetActivitiesAPi(){
             })
         })
     }
+}
+export function SelectedTrip(id) {
+    return dispatch=>{
+        axios.get(`${ROOT_URL}/api/trip/${id}`).then(response=>{
+            dispatch({
+                type:TRIP_SELECTED,
+                payload:response.data
+            })
+        })
+    }
+
 }

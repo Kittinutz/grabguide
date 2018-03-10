@@ -7,8 +7,8 @@ class Guidecontent extends Component{
     renderguide=()=>{
         return _.map(this.props.guides,value => {
             return (
-                <div className="guide-placedhold">
-                    <img src={value.image} alt=""/>
+                <div key={value.id} className="guide-placedhold">
+                    <img className="img" style={{backgroundImage:`url(${value.image})`}} alt=""/>
                     <h1>{value.name}</h1>
 
                 </div>

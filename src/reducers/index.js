@@ -1,16 +1,20 @@
-import { combineReducers } from 'redux';
+import {combineReducers} from 'redux';
 import tripreducer from './tripreducer';
 import guidereducer from './guidereducer'
 import placereducer from './placereducer';
 import activitiesreducer from './activitiesreducer';
+import tripseleted from './tripseleted';
+
 const rootReducers = combineReducers({
-    trip:tripreducer,
+    trip: tripreducer,
 
-    guide:guidereducer,
+    guide: guidereducer,
 
-    place:placereducer,
+    place: placereducer,
 
-    activities:activitiesreducer,
+    activities: activitiesreducer,
+
+    tripseleted: tripseleted,
 
 });
 export default rootReducers;
