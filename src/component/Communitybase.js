@@ -7,7 +7,7 @@ class Communitybase extends Component {
     renderComunitybase=()=>{
         return  _.map(this.props.trips,value => {
             return (
-                <div className="trip-guide">
+                <div key={value.id} className="trip-guide">
                     <img
                         className="img"
                         style={{backgroundImage: `url(${value.image})`}}

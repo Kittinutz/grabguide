@@ -135,16 +135,19 @@ h2 {
     font-size:0.5em;
 
 }
-.guiderecommence img{
-   width: 60%;
-    height: 60.75px;
+.trip-guide a{
+    width: 100%;
+}
+.guiderecommence .img{
+   width: 100%;
+    padding-top: 100%;
     border-radius: 50%;
+    background-size: cover;
 }
 
 .guide-placedhold{
     flex: 0 0 auto;
     width: 30%;
-    height: 50%;
     margin: 0 20px 0 0;
     padding: 0 0 10% 0;
     display: flex;
@@ -159,8 +162,9 @@ h2 {
     height: auto;
     background-color: #FFFFFF;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px;
-    margin: 10% 0%;
+    margin: 15% 0%;
     bottom: 20px;
+
 
 }
 .placed-trip-guide{
@@ -267,3 +271,48 @@ h2 {
 }
 /*********FOOTER BODY ***************/
 /*********CBT****************/
+/*IN TRIP*/
+.trip-image .img{
+    width: 100%;
+    background-size: cover;
+    padding-top: 50%;
+}
+.trip-name{
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.trip-name h1{
+    font-size: 2em;
+}
+.description {
+    padding: 3% 3%;
+}
+.schedule{
+    padding: 3% 5%;
+
+}
+.schedule h1{
+    font-size: 2em;
+}
+.schedule-placed{
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    border-bottom: 1px rgba(216,216,216,1) solid;
+    justify-content:center
+}
+.shcedule-placed .flex{
+   width: 100%;
+   display: inline-flex;
+
+}
+.time{
+    margin: 0% 3%;
+    width: 50%;
+}
+.description-time{
+    width: 50%;
+}
