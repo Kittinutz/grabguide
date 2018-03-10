@@ -6,7 +6,7 @@ import Header from '../component/Header';
 import Tripcontent from '../component/Tripcontent';
 import Guidecontent from '../component/Guidecontent';
 import Communitybase from '../component/Communitybase';
-
+import logo from '../asset/image/grabguide.png';
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -23,7 +23,7 @@ class Home extends Component {
                 <Header icon="search"/>
                 <div className="content">
                     <div className="content header">
-                        <h1>content pic bg</h1>
+                        <img src={logo} alt=""/>
                     </div>
                     <Tripcontent trips={this.props.trip.trips}/>
                     <div className="container">
