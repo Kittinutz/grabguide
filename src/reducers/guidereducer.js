@@ -5,6 +5,8 @@ export default function (state = {}, action) {
         case
         API_GUIDE:
             return {...state,guides:action.payload}
+        default:
+            return state
     }
     return state;
 }

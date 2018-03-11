@@ -20,7 +20,7 @@ class Guidecontent extends Component{
 
         return(
             <div className="recommencetripbyguide">
-                <h1>Guide Recommance</h1>
+                <h1>Guide Recommended</h1>
                 <div className="guide-content">
                     <div  className="guiderecommence">
                         {this.renderguide()}

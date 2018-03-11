@@ -316,3 +316,36 @@ h2 {
 .description-time{
     width: 50%;
 }
+.guide{
+    display: flex;
+    margin:3% 5%;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+.guide h1{
+    font-size: 2em;
+}
+.guideprofile{
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    margin: 5% 5%;
+
+
+}
+.guideprofile p{
+    align-self: center;
+    margin: 5% 5%;
+}
+.guideprofile .img{
+    background-size: cover;
+    padding: 10%;
+    border-radius: 50%;
+}
+.bookingtrip{
+    display: flex;
+    flex-direction: row;
+    margin: 5% 5%;
+    padding-bottom: 3%;
+    justify-content: center;
+}

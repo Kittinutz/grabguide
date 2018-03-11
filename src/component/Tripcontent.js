@@ -37,7 +37,7 @@ class Tripcontent extends Component {
         return (
             <div className="container">
                 <div className="recommencetripbyguide">
-                    <h1>Recommence Trip</h1>
+                    <h1>Recommended trips</h1>
                 </div>
                 <div className="trip-content">
                     <div className="placed-trip-guide">

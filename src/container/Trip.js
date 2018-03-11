@@ -4,10 +4,18 @@ import _ from 'lodash';
 import * as actions from '../action';
 import Footer from '../component/Footer';
 import Header from '../component/Header';
+import {Button} from 'antd';
 
-const schedule = [];
 
 class Trip extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            loading: false,
+            iconLoading: false,
+        }
+    }
+
     componentWillMount() {
         const {id} = this.props.match.params;
         this.props.SelectedTrip(id);
@@ -29,10 +37,22 @@ class Trip extends Component {
         });
     }
 
+    enterLoading = () => {
+        this.setState({loading: true});
+    };
+
+    enterIconLoading = () => {
+        this.setState({iconLoading: true},()=>{
+            const {id} = this.props.match.params;
+            return setTimeout(()=>{ this.props.history.push(`/booking/trip/${id}`) }, 1000);
+        });
+    };
 
     render() {
 
         if (this.props.tripseleted.tripseleted) {
+            const guidename = this.props.tripseleted.tripseleted.guide.name;
+            const guidesurname = this.props.tripseleted.tripseleted.guide.surname;
             return (
                 <div>
                     <Header icon="plus-circle-o"/>
@@ -54,7 +74,22 @@ class Trip extends Component {
                                 <div className="shcedule-placed">
                                     {this.renderSchedule()}
                                 </div>
+                            </div>
+                            <div className="guide">
+                                <h1>Guide</h1>
+                                <div className="guideprofile">
+                                    <img src="" className="img"
+                                         style={{backgroundImage: 'url(\'https://www.drupal.org/files/profile_default.png\')'}}
+                                         alt=""/>
+                                    <p>{guidename} {guidesurname}</p>
+                                </div>
 
+                            </div>
+                            <div className="bookingtrip">
+                                <Button type="primary" icon="environment-o" loading={this.state.iconLoading}
+                                        onClick={this.enterIconLoading}>
+                                    BOOKING THIS TRIP
+                                </Button>
                             </div>
                         </div>
                     </div>
