@@ -5,6 +5,8 @@ export default function (state = {}, action) {
         case
         API_TRIP:
             return{...state,trips:action.payload}
+        default:
+            return state
     }
     return state;
 }

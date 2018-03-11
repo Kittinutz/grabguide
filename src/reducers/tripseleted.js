@@ -5,6 +5,8 @@ export default function (state = {}, action) {
         case
         TRIP_SELECTED:
             return {...state,tripseleted:action.payload};
+        default:
+            return state
     }
     return state
 }

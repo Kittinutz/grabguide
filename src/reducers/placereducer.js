@@ -5,6 +5,8 @@ export default function (state = {}, action) {
         case
             API_PLACE:
             return {...state,places:action.payload}
+        default:
+            return state
     }
     return state;
 }
