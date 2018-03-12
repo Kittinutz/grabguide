@@ -82,7 +82,7 @@ h2 {
 
 /*********NAVBAR BODY ***************/
 .content{
-  padding-top: 40px;
+  padding:40px  0 40px 0;
   height: auto;
 }
 ::-webkit-scrollbar{
@@ -367,6 +367,33 @@ h2 {
     flex-wrap: wrap;
 }
 
+.step-antd{
+    padding: 5% 10%;
+}
+.inputnumber{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+.inputdetail{
+    display: flex;
+    flex-direction: column;
+}
+.trip-cost{
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    justify-content: space-between;
+    margin: 5% 5%;
+}
+.trip-cost-detail{
+    display: flex;
+    flex-direction: row;;
+    align-content: flex-start;
+    justify-content: space-between;
+}
 
 /*@media (max-width: 480px) {*/
     /*.ant-steps-horizontal.ant-steps-label-horizontal {*/

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {API_TRIP,API_GUIDE,API_PLACE,API_ACTIVITIES,TRIP_SELECTED} from './api';
+import {API_TRIP,API_GUIDE,API_PLACE,API_ACTIVITIES,TRIP_SELECTED,STEP1_SUBMIT} from './api';
 const ROOT_URL = 'http://dev.werapun.com:5011';
 
 
@@ -58,4 +58,15 @@ export function SelectedTrip(id) {
         })
     }
 
+}
+/*booking api */
+export function Step1(value){
+    return dispatch=>{
+        dispatch(
+            {
+                type:STEP1_SUBMIT,
+                payload:value,
+            }
+        )
+    }
 }
