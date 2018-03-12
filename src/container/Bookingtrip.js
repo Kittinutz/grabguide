@@ -47,9 +47,9 @@ class Bookingtrip extends Component {
     render() {
         const {current} = this.state;
         return (
-            <div>
+            <div key={current}>
                 <Header/>
-                <div className="content">
+                <div  className="content">
                     <div className="container">
                         <div className="step-antd">
                             <Steps
