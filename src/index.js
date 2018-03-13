@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-
+import 'react-credit-cards/lib/styles.scss';
 import registerServiceWorker from './registerServiceWorker';
 import reduxThunk from 'redux-thunk';
 import reducers from './reducers';

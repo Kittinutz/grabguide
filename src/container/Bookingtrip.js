@@ -9,21 +9,13 @@ import Footer from '../component/Footer';
 const Step = Steps.Step;
 
 const steps = [{
-    title: 'First',
+    title: 'Booking',
     content: <Step1/>,
     icon:'user'
 }, {
     title: 'Second',
     content: <Step2/>,
     icon:'solution'
-}, {
-    title: 'Last',
-    content: <Step3/>,
-    icon:'loading'
-},{
-    title: 'Last',
-    content: <Step3/>,
-    icon:'smile-o'
 }];
 
 class Bookingtrip extends Component {
@@ -50,10 +42,10 @@ class Bookingtrip extends Component {
             <div key={current}>
                 <Header/>
                 <div  className="content">
-                    <div className="container">
+                    <div className="container step">
                         <div className="step-antd">
                             <Steps
-
+                                progressDot
                                 current={current}>
                                 {steps.map(item =>
                                     <Step key={item.title}
