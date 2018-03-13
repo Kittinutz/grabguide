@@ -27,7 +27,7 @@ class Footer extends Component {
                         </div>
                     </Link>
                     <div className="footericon">
-                        <Icon type="rocket" style={{fontSize:16}}/>
+                        <Icon type="user" style={{fontSize:16}}/>
                         <h2>Profile</h2>
                     </div>
 

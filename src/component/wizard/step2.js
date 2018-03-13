@@ -2,13 +2,17 @@ import React ,{Component} from 'react';
 import { Input } from 'antd';
 import {connect} from 'react-redux';
 import * as actions from '../../action';
+import 'react-credit-cards/es/styles-compiled.css';
+import Cards from 'react-credit-cards';
 class Step2 extends Component{
     constructor(props){
         super(props);
         this.state={
+          number:'',
             name:'',
-            surname:'',
-            email:'',
+            expiry:'',
+            focused:'',
+            cvc:'',
 
         }
     }
@@ -17,25 +21,42 @@ class Step2 extends Component{
     }
     handlechange=(event)=>{
         let name = event.target.id;
+
         let v = event.target.value;
-        this.setState({[name]:v},()=>{console.log(this.state)})
+        this.setState({[name]:v,focused:name},()=>{console.log(this.state)})
+
     };
-    handleClick = ()=>{
-        console.log(this.state);
-    }
+
     render(){
         if(this.props.tripseleted){
             console.log(this.props.tripseleted)
         }
         return(
             <div>
-                <label >Name</label>
-                <Input id="name" placeholder="Surname" onKeyUp={(e)=>{this.handlechange(e)}}/>
-                <label >Surname</label >
-                <Input id="surname" placeholder="Surname" onKeyUp={(e)=>{this.handlechange(e)}}/>
-                <label >Email</label>
-                <Input id="email" placeholder="Email" onKeyUp={(e)=>{this.handlechange(e)}} />
-                <label>Trip Date</label>
+                <Cards
+                    number={this.state.number}
+                    name={this.state.name}
+                    expiry={this.state.expiry}
+                    cvc={this.state.cvc}
+                    focused={this.state.focused}
+                    preview={true}
+                />
+                <label>Number</label>
+                <Input id="number" placeholder="number" onKeyUp={(e) => {
+                    this.handlechange(e)
+                }}/>
+                <label>Name</label>
+                <Input id="name" placeholder="name" onKeyUp={(e) => {
+                    this.handlechange(e)
+                }}/>
+                <label>Cvc</label>
+                <Input id="cvc" placeholder="cvc" onKeyUp={(e) => {
+                    this.handlechange(e)
+                }}/>
+                <label>expiry</label>
+                <Input id="expiry" placeholder="expiry" onKeyUp={(e) => {
+                    this.handlechange(e)
+                }}/>
 
             </div>
         )
