@@ -1,5 +1,5 @@
 import React ,{Component} from 'react';
-import { Input } from 'antd';
+import { Input,InputNumber } from 'antd';
 import {connect} from 'react-redux';
 import * as actions from '../../action';
 import 'react-credit-cards/es/styles-compiled.css';
@@ -42,18 +42,18 @@ class Step2 extends Component{
                     preview={true}
                 />
                 <label>Number</label>
-                <Input id="number" placeholder="number" onKeyUp={(e) => {
+                <Input type="number"  id="number" placeholder="number" onKeyUp={(e) => {
                     this.handlechange(e)
                 }}/>
                 <label>Name</label>
-                <Input id="name" placeholder="name" onKeyUp={(e) => {
+                <Input id="name" placeholder="name"   style={{textTransform:"uppercase"}} onKeyUp={(e) => {
                     this.handlechange(e)
                 }}/>
-                <label>Cvc</label>
+                <label>CVC</label>
                 <Input id="cvc" placeholder="cvc" onKeyUp={(e) => {
                     this.handlechange(e)
                 }}/>
-                <label>expiry</label>
+                <label>expire</label>
                 <Input id="expiry" placeholder="expiry" onKeyUp={(e) => {
                     this.handlechange(e)
                 }}/>
@@ -62,9 +62,10 @@ class Step2 extends Component{
         )
     }
 }
-function mapStateToProps({tripseleted}) {
+function mapStateToProps({tripseleted,bookingdetail}) {
     return{
-        tripseleted
+        tripseleted,
+        bookingdetail
     }
 
 }

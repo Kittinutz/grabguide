@@ -4,9 +4,25 @@ export default function (state = {}, action) {
     switch (action.type) {
         case
         STEP1_SUBMIT:
-            return {...state, name: action.payload.name, surname: action.payload.surname, email: action.payload.email};
+            return {...state, stepone: {...action.payload}};
         default:
+            return {
+                ...state, stepone: {
+                    tripid: '',
+                    name: '',
+                    surname: '',
+                    email: '',
+                    price: 1234,
+                    child: 0,
+                    adult: 1,
+                    priceadult: 1234,
+                    pricechild: 1234 / 2,
+                    totaladultprice: 1234,
+                    totalchildprice: 0,
+                    totalprice: 1234,
+                    date: ''
+                }
+            };
             return state;
     }
-    return state;
 }
