@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import * as action from '../action';
 import {Steps, Button, message,Icon} from 'antd';
 import Step1 from '../component/wizard/step1';
 import Step2 from '../component/wizard/step2';
 import Step3 from '../component/wizard/step3';
 import Header from '../component/Header';
 import Footer from '../component/Footer';
+
 
 const Step = Steps.Step;
 
@@ -35,7 +38,13 @@ class Bookingtrip extends Component {
         const current = this.state.current - 1;
         this.setState({current});
     }
+    SendToserver = () =>{
+     message.success('Processing complete!');
+     this.props.booking(this.props.bookingdetail.stepone,()=>{
+         console.log('heelo');
+     })
 
+    };
     render() {
         const {current} = this.state;
         return (
@@ -72,7 +81,7 @@ class Bookingtrip extends Component {
                                 this.state.current === steps.length - 1
                                 &&
                                 <Button type="primary"
-                                        onClick={() => message.success('Processing complete!')}>Done</Button>
+                                        onClick={this.SendToserver}>Done</Button>
                             }
 
                         </div>
@@ -83,5 +92,10 @@ class Bookingtrip extends Component {
         );
     }
 }
+function mapStateToProps({bookingdetail}){
+    return {
+        bookingdetail,
+    }
+}
 
-export default Bookingtrip
+export default connect(mapStateToProps,action)(Bookingtrip);

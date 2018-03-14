@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {API_TRIP,API_GUIDE,API_PLACE,API_ACTIVITIES,TRIP_SELECTED,STEP1_SUBMIT} from './api';
+import {API_TRIP,API_GUIDE,API_PLACE,API_ACTIVITIES,TRIP_SELECTED,STEP1_SUBMIT,BOOKING_NEWS} from './api';
 const ROOT_URL = 'http://dev.werapun.com:5011';
 
 
@@ -68,5 +68,20 @@ export function Step1(value){
                 payload:value,
             }
         )
+    }
+}
+
+export function booking(value,cb){
+    return dispatch=>{
+        axios.post(`http://localhost:5011/bookingtrip`,value).then(response=>{
+          dispatch(
+                {
+                    type:BOOKING_NEWS,
+                    payload:response.data,
+                }
+            )
+        }).then(()=>{
+            return cb();
+        })
     }
 }
