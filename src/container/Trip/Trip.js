@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import _ from 'lodash';
-import * as actions from '../action';
-import Footer from '../component/Footer';
-import Header from '../component/Header';
+import * as actions from '../../action/index';
+import Footer from '../../component/Footer/Footer';
+import Header from '../../component/Header/Header';
 import {Button} from 'antd';
 
 

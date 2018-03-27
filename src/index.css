@@ -168,12 +168,25 @@ h2 {
 
 
 }
+.imgmytrip{
+    padding-top: 50%;
+    background-size: cover;
+}
  .step{
 
     padding-bottom: 10%;
 
 
 }
+ .mytripcontent{
+     display: flex;
+     color:#000000;
+     flex-direction: column;
+     flex-wrap: wrap;
+     justify-content: center;
+     align-items: center;
+ }
+
 .placed-trip-guide{
   display: flex;
   align-items: flex-start;

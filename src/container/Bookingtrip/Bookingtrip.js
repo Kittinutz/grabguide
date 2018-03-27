@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import * as action from '../action';
+import * as action from '../../action/index';
 import {Steps, Button, message,Icon} from 'antd';
-import Step1 from '../component/wizard/step1';
-import Step2 from '../component/wizard/step2';
-import Step3 from '../component/wizard/step3';
-import Header from '../component/Header';
-import Footer from '../component/Footer';
+import Step1 from '../../component/wizard/step1';
+import Step2 from '../../component/wizard/step2';
+import Step3 from '../../component/wizard/step3';
+import Header from '../../component/Header/Header';
+import Footer from '../../component/Footer/Footer';
 
 
 const Step = Steps.Step;
@@ -41,7 +41,7 @@ class Bookingtrip extends Component {
     SendToserver = () =>{
      message.success('Processing complete!');
      this.props.booking(this.props.bookingdetail.stepone,()=>{
-         console.log('heelo');
+         this.props.history.push('/myplan');
      })
 
     };

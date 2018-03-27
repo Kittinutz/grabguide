@@ -5,6 +5,7 @@ import placereducer from './placereducer';
 import activitiesreducer from './activitiesreducer';
 import tripseleted from './tripseleted';
 import bookingreducer from './bookingreducer';
+import bookingtrip from './bookingtrip';
 
 const rootReducers = combineReducers({
     trip: tripreducer,
@@ -16,8 +17,8 @@ const rootReducers = combineReducers({
     activities: activitiesreducer,
 
     tripseleted: tripseleted,
-    bookingdetail:bookingreducer
-
+    bookingdetail:bookingreducer,
+    mytrip:bookingtrip
 
 
 });

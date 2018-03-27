@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import Icon from 'antd/lib/icon';
-import logo from '../asset/image/grabguide.png';
+import logo from '../../asset/image/grabguide.png';
 class Header extends Component{
     render(){
         if(this.props.icon) {

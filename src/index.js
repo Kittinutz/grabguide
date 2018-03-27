@@ -17,11 +17,11 @@ import {
 } from 'react-router-dom';
 /*REDUX*/
 
-import Home from './container';
-import Myplan from './container/Myplan';
-import Express from './container/Express'
-import Trip from './container/Trip';
-import Bookingtrip from './container/Bookingtrip';
+import Home from './container/Home/';
+import Myplan from './container/Myplan/Myplan';
+import Express from './container/Express/Express'
+import Trip from './container/Trip/Trip';
+import Bookingtrip from './container/Bookingtrip/Bookingtrip';
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 const store = createStoreWithMiddleware(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 

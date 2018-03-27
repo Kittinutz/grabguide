@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import Footer from '../component/Footer';
-import Header from '../component/Header';
+import Footer from '../../component/Footer/Footer';
+import Header from '../../component/Header/Header';
 import _ from 'lodash';
 import {connect} from 'react-redux';
-import * as actions from '../action'
+import * as actions from '../../action/index'
 import {
     Form, Select, InputNumber, Switch, Radio,
     Slider, Button, Upload, Icon, Rate, DatePicker
@@ -29,13 +29,14 @@ class Myplan extends Component {
         super(props);
         this.state = {
             place: [],
-            plus:false,
+            plus: false,
         }
     }
 
     componentWillMount() {
         this.props.GetPlaceApi();
         this.props.GetActivitiesAPi();
+        this.props.querybbooking();
 
     };
 
@@ -49,10 +50,11 @@ class Myplan extends Component {
     };
 
     HandleClickIcon = () => {
-        this.setState({plus:!this.state.plus});
+        this.setState({plus: !this.state.plus});
     };
 
     render() {
+        console.log(this.props);
         const place = [];
         const activities = [];
         // const { getFieldDecorator } = this.props.form;
@@ -128,24 +130,47 @@ class Myplan extends Component {
                 </div>
             )
         }
-        return (
-            <div>
-                <Header icon="plus-circle-o" handleClick={this.HandleClickIcon}/>
-                <div className="content">
-                    <div>
-                        <h1>No Have Plan</h1>
+        if (this.props.mytrip.trip) {
+            return (
+
+                <div>
+                    <Header icon="plus-circle-o" handleClick={this.HandleClickIcon}/>
+                    <div className="content">
+                        <div className="container">
+                            <div className='imgmytrip'
+                                 style={{backgroundImage: `url(\'${this.props.mytrip.trip.image}\')`}}>
+                            </div>
+                            <div className="mytripcontent">
+                                <p>{this.props.mytrip.trip.name}</p>
+                                <p>Appointment: {this.props.mytrip.appointment}</p>
+                                <p>Price :{this.props.mytrip.price} THB</p>
+                            </div>
+                        </div>
                     </div>
+                    <Footer/>
                 </div>
-                <Footer/>
-            </div>
-        )
+            )
+        } else {
+            return (
+                <div>
+                    <Header icon="plus-circle-o" handleClick={this.HandleClickIcon}/>
+                    <div className="content">
+                        <div className="container">
+
+                        </div>
+                    </div>
+                    <Footer/>
+                </div>
+            )
+        }
     }
 }
 
-function mapStateToProps({place, activities}) {
+function mapStateToProps({place, activities, mytrip}) {
     return {
         place,
-        activities
+        activities,
+        mytrip
     }
 
 }
