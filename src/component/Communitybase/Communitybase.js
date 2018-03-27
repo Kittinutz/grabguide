@@ -10,6 +10,7 @@ export default (props) => {
                 {
                     map(trips, (data, index) =>
                         <CommunityItem
+                            key={data.id}
                             id={data.name}
                             name={data.name}
                             imageUrl={data.image} /> )
@@ -22,9 +23,9 @@ export default (props) => {
 }
 
 const CommunityItem = (props) => {
-    const { id, imageUrl, name } = props
+    const {  imageUrl, name } = props
     return (
-        <div key={id} className="trip-guide">
+        <div className="trip-guide">
             <img
                 className="img"
                 style={{backgroundImage: `url(${imageUrl})`}}
