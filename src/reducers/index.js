@@ -8,9 +8,9 @@ import bookingreducer from './bookingreducer';
 import bookingtrip from './bookingtrip';
 
 const rootReducers = combineReducers({
-    trip: tripreducer,
+    trips: tripreducer,
 
-    guide: guidereducer,
+    guides: guidereducer,
 
     place: placereducer,
 

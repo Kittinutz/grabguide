@@ -12,10 +12,10 @@ const Lifecycle = lifecycle(
     }
 );
 
-const mapStateToProps = ({trip, guide}) => {
+const mapStateToProps = ({trips, guides}) => {
     return {
-        trip,
-        guide,
+        trips,
+        guides,
 
     }
 };

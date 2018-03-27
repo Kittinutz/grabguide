@@ -1,35 +1,35 @@
-import React, {Component} from 'react';
-import _ from 'lodash';
-class Communitybase extends Component {
-    constructor(props){
-        super(props);
-    }
-    renderComunitybase=()=>{
-        return  _.map(this.props.trips,value => {
-            return (
-                <div key={value.id} className="trip-guide">
-                    <img
-                        className="img"
-                        style={{backgroundImage: `url(${value.image})`}}
+import React from 'react'
+import map from 'lodash/map'
 
-                        alt=""/>
-                    <h4>{value.name}</h4>
-                </div>
-            )
-        });
-    };
-    render() {
-        return (
+export default (props) => {
+    const { trips } = props
+    return (
 
-                <div className="trip-content">
-                    <div className="placed-trip-guide">
-                        {this.renderComunitybase()}
-                    </div>
-                </div>
+        <div className="trip-content">
+            <div className="placed-trip-guide">
+                {
+                    map(trips, (data, index) =>
+                        <CommunityItem
+                            id={data.name}
+                            name={data.name}
+                            imageUrl={data.image} /> )
+                }
+            </div>
+        </div>
 
-        )
-    }
+    )
 
 }
 
-export default Communitybase
+const CommunityItem = (props) => {
+    const { id, imageUrl, name } = props
+    return (
+        <div key={id} className="trip-guide">
+            <img
+                className="img"
+                style={{backgroundImage: `url(${imageUrl})`}}
+                alt=""/>
+            <h4>{name}</h4>
+        </div>
+    )
+}
