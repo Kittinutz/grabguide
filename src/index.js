@@ -23,6 +23,7 @@ import Myplan from './container/Myplan/Myplan';
 import Express from './container/Express/Express'
 import Trip from './container/Trip/Trip';
 import Bookingtrip from './container/Bookingtrip/Bookingtrip';
+import FaceBook from "./container/Facebook/FaceBook";
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 const store = createStoreWithMiddleware(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
@@ -31,11 +32,13 @@ ReactDOM.render((
         <BrowserRouter>
             <HashRouter>
                 <Switch>
+                    <Route path="/facebook" component={FaceBook} />
                     <Route path="/booking/trip/:id" component={Bookingtrip}/>
                     <Route path="/trip/:id" component={Trip}/>
                     <Route path="/myplan" component={Myplan}/>
                     <Route path="/express" component={Express}/>
                     <Route path="/" component={Home} />
+
                 </Switch>
             </HashRouter>
         </BrowserRouter>

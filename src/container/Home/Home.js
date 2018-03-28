@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Footer from '../../component/Footer/Footer'
+import Footer from '../../component/Footer/index'
 import Header from '../../component/Header/Header'
 import Tripcontent from '../../component/Tripcontent/Tripcontent'
 import Guidecontent from '../../component/Guidecontent/Guidecontent'

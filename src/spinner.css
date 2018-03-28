@@ -16,8 +16,8 @@
     top: 0;
     left: 0;
 
-    -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
-    animation: sk-bounce 2.0s infinite ease-in-out;
+    -webkit-animation: sk-bounce 5.0s infinite ease-in-out;
+    animation: sk-bounce 5.0s infinite ease-in-out;
 }
 
 .double-bounce2 {

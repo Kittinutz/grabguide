@@ -24,9 +24,10 @@ const handleEvent = withHandlers({
     },
 
 })
-const mapStateToProps = ({tripseleted}) => {
+const mapStateToProps = ({tripseleted,status}) => {
     return {
         tripseleted,
+        status
     }
 }
 const mapDispatchToProps = dispatch => {

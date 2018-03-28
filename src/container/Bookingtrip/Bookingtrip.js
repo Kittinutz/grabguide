@@ -6,7 +6,7 @@ import Step1 from '../../component/wizard/step1';
 import Step2 from '../../component/wizard/step2';
 import Step3 from '../../component/wizard/step3';
 import Header from '../../component/Header/Header';
-import Footer from '../../component/Footer/Footer';
+import Footer from '../../component/Footer/index';
 
 
 const Step = Steps.Step;

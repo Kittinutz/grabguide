@@ -1,14 +1,14 @@
 import React from 'react';
-import Footer from '../../component/Footer/Footer';
+import Footer from '../../component/Footer/index';
 import Header from '../../component/Header/Header';
 import {Button} from 'antd';
 import composeHOC from './HOCTrip';
 import _ from 'lodash';
 
 const Trip = (props) => {
-    const {tripseleted,enterIconLoading,iconloadingState} = props
+    const {tripseleted,enterIconLoading,iconloadingState,status} = props
     const {schedules} = tripseleted
-    if(tripseleted.guide){
+    if(status.isFetchTripselected){
     return (
         <div>
             <Header icon="plus-circle-o"/>
@@ -29,6 +29,7 @@ const Trip = (props) => {
                         <h1>itinerary</h1>
                         <div className="shcedule-placed">
                             {
+
                                 _.map(schedules, (data, index) =>
                                     <Itinerary key={index} time={data.time}
                                                description={data.description}/>
@@ -57,15 +58,19 @@ const Trip = (props) => {
             <Footer/>
         </div>
     )}
-    else{
-        return(
-            <div class="spinner">
-                <div className="double-bounce1"></div>
-                <div className="double-bounce2"></div>
-            </div>
-        )
+    else if(!status.isFetchTripselected){
+        return <Spinner/>
+
     }
 };
+const Spinner = (props)=>{
+    return(
+        <div className="spinner">
+            <div className="double-bounce1"></div>
+            <div className="double-bounce2"></div>
+        </div>
+    )
+}
 const Itinerary = (props) => {
     const {time, description} = props;
     return (  <div className="shcedule-placed flex">
