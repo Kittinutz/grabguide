@@ -3,7 +3,9 @@ import Header from '../../component/Header/Header'
 import Footer from '../../component/Footer/'
 import {Icon,Button} from 'antd';
 
-export default () => {
+import composeHOC from './HOCFacebook';
+const Facebook= (props) => {
+    const {handleLogin} = props;
     return (
         <div>
             <Header/>
@@ -15,7 +17,7 @@ export default () => {
                             <p>Grab your guide</p>
                             <p>Plase Login</p>
                             <div>
-                                <Button size="large" type="primary" icon="facebook" >
+                                <Button onClick={handleLogin} size="large" type="primary" icon="facebook" >
                                     Login Facebook
                                 </Button>
                             </div>
@@ -27,4 +29,6 @@ export default () => {
             <Footer/>
         </div>
     )
-}
+};
+
+export default composeHOC(Facebook);

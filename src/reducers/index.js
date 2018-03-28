@@ -7,6 +7,7 @@ import tripseleted from './tripseleted';
 import bookingreducer from './bookingreducer';
 import bookingtrip from './bookingtrip';
 import status from './status'
+import authentication from './authentication'
 const rootReducers = combineReducers({
     trips: tripreducer,
     guides: guidereducer,
@@ -15,7 +16,8 @@ const rootReducers = combineReducers({
     tripseleted: tripseleted,
     bookingdetail:bookingreducer,
     mytrip:bookingtrip,
-    status
+    status,
+    authentication,
 
 });
 export default rootReducers;
