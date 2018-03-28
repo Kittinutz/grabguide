@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './spinner.css';
 import 'react-credit-cards/lib/styles.scss';
 import registerServiceWorker from './registerServiceWorker';
 import reduxThunk from 'redux-thunk';
@@ -16,25 +17,37 @@ import {
     BrowserRouter
 } from 'react-router-dom';
 /*REDUX*/
-
-import Home from './container';
-import Myplan from './container/Myplan';
-import Express from './container/Express'
-import Trip from './container/Trip';
-import Bookingtrip from './container/Bookingtrip';
+import {fetchmessage} from "./action/Authentication";
+import Home from './container/Home/';
+import Myplan from './container/Myplan/Myplan';
+import Express from './container/Express/Express'
+import Trip from './container/Trip/Trip';
+import Bookingtrip from './container/Bookingtrip/Bookingtrip';
+import FaceBook from "./container/Facebook/Facebook";
+import {AUTH_USER} from "./action/type";
+import Profile from "./container/Profile/Profile";
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 const store = createStoreWithMiddleware(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const token = localStorage.getItem('token');
+if(token) {
+    store.dispatch({type: AUTH_USER});
+}
 
 ReactDOM.render((
+
     <Provider store={store}>
         <BrowserRouter>
             <HashRouter>
                 <Switch>
+
+                    <Route path="/facebook" component={FaceBook} />
                     <Route path="/booking/trip/:id" component={Bookingtrip}/>
                     <Route path="/trip/:id" component={Trip}/>
+                    <Route path="/profile" component={Profile} />
                     <Route path="/myplan" component={Myplan}/>
                     <Route path="/express" component={Express}/>
                     <Route path="/" component={Home} />
+
                 </Switch>
             </HashRouter>
         </BrowserRouter>

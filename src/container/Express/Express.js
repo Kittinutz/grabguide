@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
-import Footer from '../component/Footer';
-import Header from '../component/Header';
+import Footer from '../../component/Footer/index';
+import Header from '../../component/Header/Header';
 class Express extends Component{
     render(){
         return (

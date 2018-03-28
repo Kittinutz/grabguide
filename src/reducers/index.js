@@ -5,20 +5,19 @@ import placereducer from './placereducer';
 import activitiesreducer from './activitiesreducer';
 import tripseleted from './tripseleted';
 import bookingreducer from './bookingreducer';
-
+import bookingtrip from './bookingtrip';
+import status from './status'
+import authentication from './authentication'
 const rootReducers = combineReducers({
-    trip: tripreducer,
-
-    guide: guidereducer,
-
+    trips: tripreducer,
+    guides: guidereducer,
     place: placereducer,
-
     activities: activitiesreducer,
-
     tripseleted: tripseleted,
-    bookingdetail:bookingreducer
-
-
+    bookingdetail:bookingreducer,
+    mytrip:bookingtrip,
+    status,
+    authentication,
 
 });
 export default rootReducers;
