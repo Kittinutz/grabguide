@@ -92,55 +92,62 @@ class Step1 extends Component {
         const vet = (this.state.totalprice * 0.07).toFixed(1);
         const totalprice = this.state.totalprice;
         const ggwp = Number((vet));
-        return (
-            <div className="from-step1">
-                <label>Name</label>
-                <Input id="name" placeholder="Surname" defaultValue={this.state.name} onKeyUp={(e) => {
-                    this.handlechange(e)
-                }}/>
-                <label>Surname</label>
-                <Input id="surname" placeholder="Surname" defaultValue={this.state.surname} onKeyUp={(e) => {
-                    this.handlechange(e)
-                }}/>
-                <label>Email</label>
-                <Input id="email" placeholder="Email" defaultValue={this.state.email} onKeyUp={(e) => {
-                    this.handlechange(e)
-                }}/>
-                <label>Trip Date</label><br/>
-                <DatePicker onChange={this.datepicker}/><br/>
-                <div className="inputnumber">
-                    <div className="inputdetail">
-                        <label><Icon type="user-add"/>Adult</label>
-                        <InputNumber min={1} max={10} defaultValue={this.state.adult}
-                                     onChange={this.handleChangeAdult}/>
+        const {authentication} = this.props;
+        const {user} = authentication;
+        if(user) {
+            return (
+                <div className="from-step1">
+                    <label>Name</label>
+                    <Input id="name" placeholder="Surname" defaultValue={user.name} onKeyUp={(e) => {
+                        this.handlechange(e)
+                    }}/>
+                    <label>Email</label>
+                    <Input id="email" placeholder="Email" defaultValue={user.email} onKeyUp={(e) => {
+                        this.handlechange(e)
+                    }}/>
+                    <label>Trip Date</label><br/>
+                    <DatePicker onChange={this.datepicker}/><br/>
+                    <div className="inputnumber">
+                        <div className="inputdetail">
+                            <label><Icon type="user-add"/>Adult</label>
+                            <InputNumber min={1} max={10} defaultValue={this.state.adult}
+                                         onChange={this.handleChangeAdult}/>
+                        </div>
+                        <div className="inputdetail">
+                            <label><Icon type="user-add"/>Child</label>
+                            <InputNumber min={0} max={10} defaultValue={this.state.child}
+                                         onChange={this.handleChangechild}/>
+                        </div>
                     </div>
-                    <div className="inputdetail">
-                        <label><Icon type="user-add"/>Child</label>
-                        <InputNumber min={0} max={10} defaultValue={this.state.child}
-                                     onChange={this.handleChangechild}/>
-                    </div>
-                </div>
-                <div className="trip-cost">
-                    <div className="trip-cost-detail">
-                        <p>Trip cost:</p><p>{this.state.totalprice} THB</p>
-                    </div>
-                    <div className="trip-cost-detail">
-                        <p>Booking Fee + Tax:</p><p>{vet} THB</p>
-                    </div>
-                    <div className="trip-cost-detail">
-                        <p>Total price:</p><p>{this.state.totalprice + ggwp} THB</p>
-                    </div>
+                    <div className="trip-cost">
+                        <div className="trip-cost-detail">
+                            <p>Trip cost:</p><p>{this.state.totalprice} THB</p>
+                        </div>
+                        <div className="trip-cost-detail">
+                            <p>Booking Fee + Tax:</p><p>{vet} THB</p>
+                        </div>
+                        <div className="trip-cost-detail">
+                            <p>Total price:</p><p>{this.state.totalprice + ggwp} THB</p>
+                        </div>
 
+                    </div>
                 </div>
-            </div>
-        )
+            )
+        }else{
+            return(
+                <div>
+                    loading...
+                </div>
+            )
+        }
     }
 }
 
-function mapStateToProps({bookingdetail, tripseleted}) {
+function mapStateToProps({bookingdetail, tripseleted,authentication}) {
     return {
         bookingdetail,
-        tripseleted
+        tripseleted,
+        authentication
     }
 }
 
