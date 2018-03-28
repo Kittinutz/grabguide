@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cf68ce2a-2ad4-404b-8050-e287a1b1797f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/component/wizard/HOCStep1.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/action/Authentication.js" afterPath="$PROJECT_DIR$/src/action/Authentication.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/action/type.js" afterPath="$PROJECT_DIR$/src/action/type.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/component/Header/Header.js" afterPath="$PROJECT_DIR$/src/component/Header/Header.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/component/wizard/step1.js" afterPath="$PROJECT_DIR$/src/component/wizard/step1.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/container/Bookingtrip/Bookingtrip.js" afterPath="$PROJECT_DIR$/src/container/Bookingtrip/Bookingtrip.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/container/Bookingtrip/HOCBookingtrip.js" afterPath="$PROJECT_DIR$/src/container/Bookingtrip/HOCBookingtrip.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/container/Facebook/HOCFacebook.js" afterPath="$PROJECT_DIR$/src/container/Facebook/HOCFacebook.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.js" afterPath="$PROJECT_DIR$/src/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reducers/authentication.js" afterPath="$PROJECT_DIR$/src/reducers/authentication.js" />
-    </list>
+    <list default="true" id="cf68ce2a-2ad4-404b-8050-e287a1b1797f" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -85,8 +73,8 @@
           <file leaf-file-name="step1.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/component/wizard/step1.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-42">
-                  <caret line="147" column="70" lean-forward="false" selection-start-line="147" selection-start-column="66" selection-end-line="147" selection-end-column="70" />
+                <state relative-caret-position="202">
+                  <caret line="149" column="20" lean-forward="true" selection-start-line="149" selection-start-column="20" selection-end-line="149" selection-end-column="20" />
                   <folding>
                     <element signature="e#0#39#0" expanded="true" />
                   </folding>
@@ -515,15 +503,16 @@
       <workItem from="1521359090729" duration="158000" />
       <workItem from="1522074311831" duration="7041000" />
       <workItem from="1522152882897" duration="11737000" />
-      <workItem from="1522216203125" duration="15784000" />
+      <workItem from="1522216203125" duration="15821000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139517000" />
+    <option name="totallyTimeSpent" value="139554000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1200" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14428647" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -532,7 +521,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32031944" sideWeight="0.49815693" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32031944" sideWeight="0.49815693" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -984,8 +973,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/component/wizard/step1.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-42">
-          <caret line="147" column="70" lean-forward="false" selection-start-line="147" selection-start-column="66" selection-end-line="147" selection-end-column="70" />
+        <state relative-caret-position="202">
+          <caret line="149" column="20" lean-forward="true" selection-start-line="149" selection-start-column="20" selection-end-line="149" selection-end-column="20" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
