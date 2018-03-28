@@ -1,4 +1,4 @@
-import {AUTH_USER} from "../action/type";
+import {AUTH_USER,FETCH_USER} from "../action/type";
 
 const initailstate = {
     isAuth:false,
@@ -9,8 +9,10 @@ export default function (state=initailstate,action) {
         case
             AUTH_USER:
             return {...state,isAuth:true};
-        default:
-            return state;
+        case
+            FETCH_USER:
+            return {...state,user:action.payload}
+     
     }
     return state;
 

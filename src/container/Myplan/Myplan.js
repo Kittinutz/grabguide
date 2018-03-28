@@ -73,79 +73,87 @@ class Myplan extends Component {
                 activities.push(<Option key={value.id} value={value.id}>{value.name}</Option>)
             });
         }
-        if (this.state.plus) {
+        // if (this.state.plus) {
+        //     return (
+        //         <div>
+        //             <Header icon="plus-circle-o" handleClick={this.HandleClickIcon}/>
+        //             <div className="content">
+        //                 <div className="container">
+        //                     <div className="form-myplan">
+        //                         <Form onSubmit={this.handleSubmit}>
+        //                             <FormItem
+        //                                 {...formItemLayout}
+        //                                 label="Choose Your Place interesting"
+        //                             >
+        //                                 <Select mode="multiple" placeholder="Please select Your Place interesting"
+        //                                         onChange={handleChange}>
+        //                                     {place}
+        //                                 </Select>
+        //                             </FormItem>
+        //                             <FormItem
+        //                                 {...formItemLayout}
+        //                                 label="Choose Your favourite Activities"
+        //                             >
+        //                                 <Select mode="multiple"
+        //                                         placeholder="Please select Your favourite Activities"
+        //                                         onChange={handleChange}>
+        //                                     {activities}
+        //                                 </Select>
+        //                             </FormItem>
+        //                             <FormItem
+        //                                 {...formItemLayout}
+        //                                 label="Pick you Appointment"
+        //                             >
+        //                                 <DatePicker onChange={onChange}/>
+        //                             </FormItem>
+        //                             <FormItem
+        //                                 {...formItemLayout}
+        //                                 label="Number Of Person"
+        //                             >
+        //                                 <Select key={2}
+        //                                         placeholder="Number Of Person"
+        //                                         onChange={handleChange}>
+        //                                     <Option value="1">1</Option>
+        //                                     <Option value="2">2</Option>
+        //                                     <Option value="3">3</Option>
+        //                                     <Option value="4">4</Option>
+        //                                     <Option value="5">5</Option>
+        //                                     <Option value="6">6</Option>
+        //                                 </Select>
+        //                             </FormItem>
+        //
+        //                         </Form>
+        //                     </div>
+        //                 </div>
+        //             </div>
+        //             <Footer/>
+        //         </div>
+        //     )
+        // }
+        if (this.props.mytrip) {
             return (
+
                 <div>
                     <Header icon="plus-circle-o" handleClick={this.HandleClickIcon}/>
                     <div className="content">
-                        <div className="container">
-                            <div className="form-myplan">
-                                <Form onSubmit={this.handleSubmit}>
-                                    <FormItem
-                                        {...formItemLayout}
-                                        label="Choose Your Place interesting"
-                                    >
-                                        <Select mode="multiple" placeholder="Please select Your Place interesting"
-                                                onChange={handleChange}>
-                                            {place}
-                                        </Select>
-                                    </FormItem>
-                                    <FormItem
-                                        {...formItemLayout}
-                                        label="Choose Your favourite Activities"
-                                    >
-                                        <Select mode="multiple"
-                                                placeholder="Please select Your favourite Activities"
-                                                onChange={handleChange}>
-                                            {activities}
-                                        </Select>
-                                    </FormItem>
-                                    <FormItem
-                                        {...formItemLayout}
-                                        label="Pick you Appointment"
-                                    >
-                                        <DatePicker onChange={onChange}/>
-                                    </FormItem>
-                                    <FormItem
-                                        {...formItemLayout}
-                                        label="Number Of Person"
-                                    >
-                                        <Select key={2}
-                                                placeholder="Number Of Person"
-                                                onChange={handleChange}>
-                                            <Option value="1">1</Option>
-                                            <Option value="2">2</Option>
-                                            <Option value="3">3</Option>
-                                            <Option value="4">4</Option>
-                                            <Option value="5">5</Option>
-                                            <Option value="6">6</Option>
-                                        </Select>
-                                    </FormItem>
+                        {
+                            _.map(this.props.mytrip,data=>{
+                                console.log(data)
+                                return(
+                                    <div key={data.id} className="container">
+                                        <div className='imgmytrip'
+                                             style={{backgroundImage: `url(\'${data.trip.image}\')`}}>
+                                        </div>
+                                        <div className="mytripcontent">
+                                            <p>{data.name}</p>
+                                            <p>Appointment: {data.appointment}</p>
+                                            <p>Price :{data.price} THB</p>
+                                        </div>
+                                    </div>
+                                )
+                            })
 
-                                </Form>
-                            </div>
-                        </div>
-                    </div>
-                    <Footer/>
-                </div>
-            )
-        }
-        if (this.props.mytrip.trip) {
-            return (
-
-                <div>
-                    <Header icon="plus-circle-o" handleClick={this.HandleClickIcon}/>
-                    <div className="content">
-                        <div className="container">
-                            <div className='imgmytrip'
-                                 style={{backgroundImage: `url(\'${this.props.mytrip.trip.image}\')`}}>
-                            </div>
-                            <div className="mytripcontent">
-                                <p>{this.props.mytrip.trip.name}</p>
-                                <p>Appointment: {this.props.mytrip.appointment}</p>
-                                <p>Price :{this.props.mytrip.price} THB</p>
-                            </div>
-                        </div>
+                        }
                     </div>
                     <Footer/>
                 </div>

@@ -16,7 +16,7 @@ const handleEvent = withHandlers({
             provider: "facebook"
 
         };
-       props.signup(user);
+       props.signup(user,props.history.goBack());
     }
 
 });
