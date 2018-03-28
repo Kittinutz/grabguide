@@ -8,29 +8,68 @@ import Step2 from '../../component/wizard/step2';
 import Step3 from '../../component/wizard/step3';
 import Header from '../../component/Header/Header';
 import Footer from '../../component/Footer/index';
+const Step = Steps.Step;
+
+
+
 const Bookingtrip = (props)=>{
-   const {authentication,bookingdetail}  = props;
+   const {authentication,bookingdetail,current}  = props;
+    const steps = [{
+        title: 'Booking',
+        content: <Step1 {...props}/>,
+        icon:'user'
+    }, {
+        title: 'Second',
+        content: <Step2 {...props} />,
+        icon:'solution'
+    }];
    return (
-       <div className='content'>
-           <div className='conatainer'>
-               Helloworld
-           </div>
-       </div>
+                   <div key={current}>
+                <Header/>
+                <div  className="content">
+                    <div className="container step">
+                        <div className="step-antd">
+                            <Steps
+                                progressDot
+                                current={current}>
+                                {steps.map(item =>
+                                    <Step key={item.title}
+                                          title={item.title}
+                                          icon={<Icon type={item.icon}/>}
+                                                       />)}
+                            </Steps>
+                        </div>
+                        <div className="steps-content">{steps[current].content}</div>
+                        <div className="steps-action">
+                            {
+                                current > 0
+                                &&
+                                <Button style={{marginLeft: 8}} onClick={() => this.prev()}>
+                                    Previous
+                                </Button>
+                            }
+                            {
+                                current < steps.length - 1
+                                &&
+                                <Button type="primary" onClick={() => this.next()}>Next</Button>
+                            }
+                            {
+                                current === steps.length - 1
+                                &&
+                                <Button type="primary"
+                                        onClick={this.SendToserver}>Done</Button>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+                <Footer/>
+            </div>
+
    )
 };
 export default composeHOC(Bookingtrip);
-// const Step = Steps.Step;
-//
-// const steps = [{
-//     title: 'Booking',
-//     content: <Step1/>,
-//     icon:'user'
-// }, {
-//     title: 'Second',
-//     content: <Step2/>,
-//     icon:'solution'
-// }];
-//
+
 // class Bookingtrip extends Component {
 //     constructor(props) {
 //         super(props);

@@ -17,7 +17,7 @@ import {
     BrowserRouter
 } from 'react-router-dom';
 /*REDUX*/
-
+import {fetchmessage} from "./action/Authentication";
 import Home from './container/Home/';
 import Myplan from './container/Myplan/Myplan';
 import Express from './container/Express/Express'
@@ -28,9 +28,10 @@ import {AUTH_USER} from "./action/type";
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 const store = createStoreWithMiddleware(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 const token = localStorage.getItem('token');
-if(token){
-    store.dispatch({type:AUTH_USER})
+if(token) {
+    store.dispatch({type: AUTH_USER});
 }
+
 ReactDOM.render((
 
     <Provider store={store}>

@@ -35,7 +35,7 @@ class Header extends Component {
                             >
                             <div className="icon ">
                                 <a onClick={()=>{
-                                    this.props.history.goBack();
+                                    this.props.history.push('/');
                                 }}><Icon type="left" style={{fontSize: 20}}/></a>
 
                             </div>
