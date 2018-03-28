@@ -88,13 +88,18 @@ export function booking(value,cb){
     }
 }
 export function querybbooking() {
-    return dispatch=>{
-        axios.get(`${ROOT_URL}/api/mybooking`).then(response=>{
+    return async dispatch=>{
+        const token = localStorage.getItem('token');
+        const response = await axios.get(`${ROOT_URL}/api/mybooking`,{
+           headers:{
+               authorization:token
+           }
+        });
             dispatch({
                 type:BOOKING_QUERY,
                 payload:response.data
             })
-        });
+
     }
 
 }

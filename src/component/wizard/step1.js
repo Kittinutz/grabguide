@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../action';
+import enhance  from './HOCStep1';
 
 import {Input, DatePicker, Icon, InputNumber} from 'antd';
 
@@ -24,9 +25,7 @@ class Step1 extends Component {
 
     componentDidMount() {
 
-        console.log(this.state);
-
-        if (this.props.tripseleted.tripseleted) {
+        if (this.props.tripseleted) {
             return this.SetPrice();
         }
 
@@ -70,12 +69,14 @@ class Step1 extends Component {
 
     };
     SetPrice = () => {
+        console.log(this.props);
         if (this.state.adult == 1 && this.state.child == 0) {
-            let id = this.props.tripseleted.tripseleted.id;
-            let price = parseInt(this.props.tripseleted.tripseleted.price);
+            let id = this.props.tripseleted.id;
+            let price = parseInt(this.props.tripseleted.price);
             this.setState({price: price, priceadult: price, pricechild: price / 2, totalprice: price});
             this.setState({tripid:id},()=>{console.log(this.state)});
         }
+
 
     };
     // componentWillUpdate(nextProps,nextState){
@@ -151,4 +152,58 @@ function mapStateToProps({bookingdetail, tripseleted,authentication}) {
     }
 }
 
-export default connect(mapStateToProps, actions)(Step1);
+
+// const Step1 = (props)=>{
+//     console.log(props)
+//     const {name,authentication} = props;
+//     const {user} = authentication;
+//     if(user) {
+//         return (
+//             <div className="from-step1">
+//                 <label>Name</label>
+//                 <Input id="name" placeholder="Name" defaultValue={name} onKeyUp={(e) => {
+//                     this.handlechange(e)
+//                 }}/>
+//                 <label>Email</label>
+//                 <Input id="email" placeholder="Email" defaultValue={user.email} onKeyUp={(e) => {
+//                     this.handlechange(e)
+//                 }}/>
+//                 <label>Trip Date</label><br/>
+//                 <DatePicker onChange={this.datepicker}/><br/>
+//                 <div className="inputnumber">
+//                     <div className="inputdetail">
+//                         <label><Icon type="user-add"/>Adult</label>
+//                         <InputNumber min={1} max={10} defaultValue={1}
+//                                      onChange={this.handleChangeAdult}/>
+//                     </div>
+//                     <div className="inputdetail">
+//                         <label><Icon type="user-add"/>Child</label>
+//                         <InputNumber min={0} max={10} defaultValue={0}
+//                                      onChange={this.handleChangechild}/>
+//                     </div>
+//                 </div>
+//                 <div className="trip-cost">
+//                     <div className="trip-cost-detail">
+//                         <p>Trip cost:</p><p>{0} THB</p>
+//                     </div>
+//                     <div className="trip-cost-detail">
+//                         <p>Booking Fee + Tax:</p><p>{0} THB</p>
+//                     </div>
+//                     <div className="trip-cost-detail">
+//                         <p>Total price:</p><p>{0 + 0} THB</p>
+//                     </div>
+//
+//                 </div>
+//             </div>
+//         )
+//     }else{
+//         return (
+//             <div>
+//                 loading
+//             </div>
+//         )
+//     }
+// }
+
+
+export default connect(mapStateToProps,actions)(Step1);
