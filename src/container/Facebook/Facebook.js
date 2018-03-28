@@ -8,7 +8,7 @@ const Facebook= (props) => {
     const {handleLogin} = props;
     return (
         <div>
-            <Header/>
+            <Header {...props}/>
             <div className="content">
                 <div className="container">
                     <div className="facebook">

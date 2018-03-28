@@ -1,9 +1,13 @@
-import React,{Component} from 'react';
+import React, {Component} from 'react';
 import Icon from 'antd/lib/icon';
 import logo from '../../asset/image/grabguide.png';
-class Header extends Component{
-    render(){
-        if(this.props.icon) {
+
+class Header extends Component {
+    constructor(props){
+        super(props)
+    }
+    render() {
+        if (this.props.icon) {
             return (
 
                 <header>
@@ -23,13 +27,17 @@ class Header extends Component{
                     </div>
                 </header>
             )
-        }else {
+        } else {
             return (
                 <header>
                     <div className="navbarbody">
-                        <div className="navbarbody navbar">
-                            <div className="logo">
-                                <img src={logo} alt=""/>
+                        <div className="navbarbody navbarinverse ">
+                            >
+                            <div className="icon ">
+                                <a onClick={()=>{
+                                    this.props.history.goBack();
+                                }}><Icon type="left" style={{fontSize: 20}}/></a>
+
                             </div>
                         </div>
 
@@ -40,4 +48,5 @@ class Header extends Component{
         }
     }
 }
+
 export default Header;
