@@ -87,7 +87,7 @@ export function booking(value,cb){
         })
     }
 }
-export function querybbooking() {
+export function querybooking() {
     return async dispatch=>{
         const token = localStorage.getItem('token');
         const response = await axios.get(`${ROOT_URL}/api/mybooking`,{
