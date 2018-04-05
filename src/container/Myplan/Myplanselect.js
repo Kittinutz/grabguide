@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from "../../component/Header/Header";
 import Footer from '../../component/Footer'
-
+import enhance from './HOCMyplanselect'
 const Myplanselect = (props)=>{
     return (
         <div>
@@ -12,4 +12,4 @@ const Myplanselect = (props)=>{
         </div>
     )
 }
-export default Myplanselect
+export default enhance(Myplanselect)
