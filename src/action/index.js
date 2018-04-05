@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {API_TRIP,API_GUIDE,API_PLACE,API_ACTIVITIES,TRIP_SELECTED,STEP1_SUBMIT,BOOKING_NEWS,BOOKING_QUERY} from './api';
+import {API_TRIP,API_GUIDE,API_PLACE,API_ACTIVITIES,TRIP_SELECTED,STEP1_SUBMIT,BOOKING_NEWS,BOOKING_QUERY,BOOKING_QUERYBYID} from './api';
 const ROOT_URL = 'http://dev.werapun.com:5011';
 
 
@@ -99,6 +99,17 @@ export function querybooking() {
                 type:BOOKING_QUERY,
                 payload:response.data
             })
+
+    }
+
+}
+export function querybookingById(id){
+    return async dispatch =>{
+        const response = await  axios.post(`${ROOT_URL}/api/mybooking`,{id:id})
+        dispatch({
+            type:BOOKING_QUERYBYID,
+            payload:response.data
+        })
 
     }
 
