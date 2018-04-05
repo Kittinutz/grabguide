@@ -8,7 +8,7 @@ import {
     Form, Select, Radio,
      DatePicker,Card,Avatar,Icon
 } from 'antd';
-
+import {Link} from 'react-router-dom'
 const {MonthPicker, RangePicker, WeekPicker} = DatePicker;
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -143,7 +143,7 @@ class Myplan extends Component {
                                     <Card
                                         style={{ width: "100%" ,marginTop:"10%" }}
                                         cover={<img alt={data.name} src={data.trip.image} />}
-                                        actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
+                                        actions={[<Link to={`/myplan/${data.id}`}><Icon type="book" /></Link>, <Icon type="edit" />, <Icon type="ellipsis" />]}
                                     >
                                         <Meta
                                             avatar={<Avatar src={data.trip.guide.image} />}
