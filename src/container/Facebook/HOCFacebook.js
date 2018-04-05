@@ -4,6 +4,16 @@ import {bindActionCreators} from "redux";
 import firebase from 'firebase';
 import{signup} from '../../action/Authentication';
 import {provider,auth} from "../../firebase";
+
+const Lifecycle = lifecycle({
+
+    componentWillReceiveProps(nextProps){
+       if(nextProps.authentication.isAuth){
+           return this.props.history.goBack();
+       }
+    }
+
+});
 const handleEvent = withHandlers({
      handleLogin:props => async args =>{
         const result = await auth().signInWithPopup(provider);
@@ -16,14 +26,23 @@ const handleEvent = withHandlers({
             provider: "facebook"
 
         };
+        const {id} = props.match.params
        props.signup(user,props.history.goBack());
+
     }
 
 });
+const mapStateToProps = ({bookingdetail,authentication})=>{
+    return {
+        bookingdetail,
+        authentication
+    }
+}
 const mapDispatchToProps = dispatch => {
     return bindActionCreators({signup}, dispatch);
 };
 export default compose(
-    connect(null,mapDispatchToProps),
-    handleEvent
+    connect(mapStateToProps,mapDispatchToProps),
+    handleEvent,
+    Lifecycle
 )

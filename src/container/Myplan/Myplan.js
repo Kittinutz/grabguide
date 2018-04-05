@@ -5,8 +5,8 @@ import _ from 'lodash';
 import {connect} from 'react-redux';
 import * as actions from '../../action/index'
 import {
-    Form, Select, InputNumber, Switch, Radio,
-    Slider, Button, Upload, Icon, Rate, DatePicker
+    Form, Select, Radio,
+     DatePicker,Card,Avatar,Icon
 } from 'antd';
 
 const {MonthPicker, RangePicker, WeekPicker} = DatePicker;
@@ -14,7 +14,7 @@ const FormItem = Form.Item;
 const Option = Select.Option;
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
-
+const { Meta } = Card;
 
 function handleChange(value) {
     console.log(`Selected: ${value}`);
@@ -36,7 +36,7 @@ class Myplan extends Component {
     componentWillMount() {
         this.props.GetPlaceApi();
         this.props.GetActivitiesAPi();
-        this.props.querybbooking();
+        this.props.querybooking();
 
     };
 
@@ -73,64 +73,64 @@ class Myplan extends Component {
                 activities.push(<Option key={value.id} value={value.id}>{value.name}</Option>)
             });
         }
-        // if (this.state.plus) {
-        //     return (
-        //         <div>
-        //             <Header icon="plus-circle-o" handleClick={this.HandleClickIcon}/>
-        //             <div className="content">
-        //                 <div className="container">
-        //                     <div className="form-myplan">
-        //                         <Form onSubmit={this.handleSubmit}>
-        //                             <FormItem
-        //                                 {...formItemLayout}
-        //                                 label="Choose Your Place interesting"
-        //                             >
-        //                                 <Select mode="multiple" placeholder="Please select Your Place interesting"
-        //                                         onChange={handleChange}>
-        //                                     {place}
-        //                                 </Select>
-        //                             </FormItem>
-        //                             <FormItem
-        //                                 {...formItemLayout}
-        //                                 label="Choose Your favourite Activities"
-        //                             >
-        //                                 <Select mode="multiple"
-        //                                         placeholder="Please select Your favourite Activities"
-        //                                         onChange={handleChange}>
-        //                                     {activities}
-        //                                 </Select>
-        //                             </FormItem>
-        //                             <FormItem
-        //                                 {...formItemLayout}
-        //                                 label="Pick you Appointment"
-        //                             >
-        //                                 <DatePicker onChange={onChange}/>
-        //                             </FormItem>
-        //                             <FormItem
-        //                                 {...formItemLayout}
-        //                                 label="Number Of Person"
-        //                             >
-        //                                 <Select key={2}
-        //                                         placeholder="Number Of Person"
-        //                                         onChange={handleChange}>
-        //                                     <Option value="1">1</Option>
-        //                                     <Option value="2">2</Option>
-        //                                     <Option value="3">3</Option>
-        //                                     <Option value="4">4</Option>
-        //                                     <Option value="5">5</Option>
-        //                                     <Option value="6">6</Option>
-        //                                 </Select>
-        //                             </FormItem>
-        //
-        //                         </Form>
-        //                     </div>
-        //                 </div>
-        //             </div>
-        //             <Footer/>
-        //         </div>
-        //     )
-        // }
-        if (this.props.mytrip) {
+        if (this.state.plus) {
+            return (
+                <div>
+                    <Header icon="plus-circle-o" handleClick={this.HandleClickIcon}/>
+                    <div className="content">
+                        <div className="container">
+                            <div className="form-myplan">
+                                <Form onSubmit={this.handleSubmit}>
+                                    <FormItem
+                                        {...formItemLayout}
+                                        label="Choose Your Place interesting"
+                                    >
+                                        <Select mode="multiple" placeholder="Please select Your Place interesting"
+                                                onChange={handleChange}>
+                                            {place}
+                                        </Select>
+                                    </FormItem>
+                                    <FormItem
+                                        {...formItemLayout}
+                                        label="Choose Your favourite Activities"
+                                    >
+                                        <Select mode="multiple"
+                                                placeholder="Please select Your favourite Activities"
+                                                onChange={handleChange}>
+                                            {activities}
+                                        </Select>
+                                    </FormItem>
+                                    <FormItem
+                                        {...formItemLayout}
+                                        label="Pick you Appointment"
+                                    >
+                                        <DatePicker onChange={onChange}/>
+                                    </FormItem>
+                                    <FormItem
+                                        {...formItemLayout}
+                                        label="Number Of Person"
+                                    >
+                                        <Select key={2}
+                                                placeholder="Number Of Person"
+                                                onChange={handleChange}>
+                                            <Option value="1">1</Option>
+                                            <Option value="2">2</Option>
+                                            <Option value="3">3</Option>
+                                            <Option value="4">4</Option>
+                                            <Option value="5">5</Option>
+                                            <Option value="6">6</Option>
+                                        </Select>
+                                    </FormItem>
+
+                                </Form>
+                            </div>
+                        </div>
+                    </div>
+                    <Footer/>
+                </div>
+            )
+        }
+        else if (this.props.mytrip) {
             return (
 
                 <div>
@@ -140,16 +140,18 @@ class Myplan extends Component {
                             _.map(this.props.mytrip,data=>{
                                 console.log(data)
                                 return(
-                                    <div key={data.id} className="container">
-                                        <div className='imgmytrip'
-                                             style={{backgroundImage: `url(\'${data.trip.image}\')`}}>
-                                        </div>
-                                        <div className="mytripcontent">
-                                            <p>{data.name}</p>
-                                            <p>Appointment: {data.appointment}</p>
-                                            <p>Price :{data.price} THB</p>
-                                        </div>
-                                    </div>
+                                    <Card
+                                        style={{ width: "100%" ,marginTop:"10%" }}
+                                        cover={<img alt={data.name} src={data.trip.image} />}
+                                        actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
+                                    >
+                                        <Meta
+                                            avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                                            title={data.trip.name}
+                                            description={data.trip.description}
+                                        />
+                                    </Card>
+
                                 )
                             })
 
