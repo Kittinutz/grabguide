@@ -146,7 +146,7 @@ class Myplan extends Component {
                                         actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
                                     >
                                         <Meta
-                                            avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                                            avatar={<Avatar src={data.trip.guide.image} />}
                                             title={data.trip.name}
                                             description={data.trip.description}
                                         />
