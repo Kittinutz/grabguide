@@ -7,7 +7,7 @@ const Myplanselect = (props)=>{
         <div>
             <Header/>
 
-            Hello Selected
+            Hello Selected 1
             <Footer/>
         </div>
     )
