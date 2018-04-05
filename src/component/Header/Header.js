@@ -32,7 +32,6 @@ class Header extends Component {
                 <header>
                     <div className="navbarbody">
                         <div className="navbarbody navbarinverse ">
-                            >
                             <div className="icon ">
                                 <a onClick={()=>{
                                     this.props.history.push('/');
