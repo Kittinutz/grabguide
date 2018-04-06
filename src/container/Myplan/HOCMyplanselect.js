@@ -5,7 +5,8 @@ import {bindActionCreators} from 'redux'
 
 const Lifecycle = lifecycle({
     componentDidMount(){
-        this.props.querybookingById()
+        const {id} = this.props.match.params
+        this.props.querybookingById(id)
     }
 })
 const mapStateToProps = ({bookingtripid})=>{
