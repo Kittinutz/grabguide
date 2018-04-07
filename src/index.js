@@ -27,6 +27,7 @@ import FaceBook from "./container/Facebook/Facebook";
 import {AUTH_USER} from "./action/type";
 import Profile from "./container/Profile/Profile";
 import Myplanselect from "./container/Myplan/Myplanselect";
+import Createtrip from "./container/CreateTrip/index";
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 const store = createStoreWithMiddleware(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 const token = localStorage.getItem('token');
@@ -41,6 +42,7 @@ ReactDOM.render((
             <HashRouter>
                 <Switch>
 
+                    <Route path="/createtrip" component={Createtrip} />
                     <Route path="/facebook" component={FaceBook} />
                     <Route path="/booking/trip/:id" component={Bookingtrip}/>
                     <Route path="/trip/:id" component={Trip}/>

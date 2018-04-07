@@ -4,15 +4,18 @@ import Footer from '../../component/Footer'
 import enhance from './HOCMyplanselect'
 import dateformat from 'dateformat';
 import _ from 'lodash'
+import { Tabs, Radio } from 'antd';
+const TabPane = Tabs.TabPane;
 const Myplanselect = (props) => {
-    const {bookingtripid} = props;
+    const {bookingtripid,mode} = props;
     const date = "03-11-2014";
    const newdate = dateformat(bookingtripid.appointment,"dddd,mmmm.dS");
    const {trip} = bookingtripid
     if(bookingtripid.trip) {
+       console.log(props)
         return (
             <div>
-                <Header/>
+                <Header {...props}/>
                 <div className="content">
                     <div className="container">
                         <h3>Trip on {newdate}</h3>
@@ -47,7 +50,18 @@ const Myplanselect = (props) => {
                                      alt=""/>
                                 <p>{trip.guide.name+" "+trip.guide.surname }</p>
                             </div>
-
+                        </div>
+                        <div>
+                            <Tabs
+                                defaultActiveKey="1"
+                                tabPosition={mode}
+                                style={{ height: "10%" }}
+                            >
+                                <TabPane tab="Booking" key="1">Content of tab 1</TabPane>
+                                <TabPane tab="Detail" key="2">Content of tab 2</TabPane>
+                                <TabPane tab="Chat" key="3">Content of tab 3</TabPane>
+                                <TabPane tab="Tester3" key="4">Content of tab 4</TabPane>
+                            </Tabs>
                         </div>
 
                     </div>

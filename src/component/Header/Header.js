@@ -4,9 +4,10 @@ import logo from '../../asset/image/grabguide.png';
 
 class Header extends Component {
     constructor(props){
-        super(props)
+        super(props);
     }
     render() {
+        console.log(this.props);
         if (this.props.icon) {
             return (
 
@@ -34,7 +35,7 @@ class Header extends Component {
                         <div className="navbarbody navbarinverse ">
                             <div className="icon ">
                                 <a onClick={()=>{
-                                    this.props.history.push('/');
+                                   this.props.history.goBack();
                                 }}><Icon type="left" style={{fontSize: 20}}/></a>
 
                             </div>
