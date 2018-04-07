@@ -1,5 +1,15 @@
 import axios from 'axios';
-import {API_TRIP,API_GUIDE,API_PLACE,API_ACTIVITIES,TRIP_SELECTED,STEP1_SUBMIT,BOOKING_NEWS,BOOKING_QUERY,BOOKING_QUERYBYID} from './api';
+import {API_TRIP,
+    API_GUIDE,
+    API_PLACE,
+    API_ACTIVITIES,
+    TRIP_SELECTED,
+    STEP1_SUBMIT,
+    BOOKING_NEWS,
+    BOOKING_QUERY,
+    BOOKING_QUERYBYID,
+    API_PLACEBYACTIVITIES
+} from './api';
 const ROOT_URL = 'http://dev.werapun.com:5011';
 
 
@@ -45,6 +55,18 @@ export function GetActivitiesAPi(){
                 type:API_ACTIVITIES,
                 payload:response.data
             })
+        })
+    }
+}
+export function GetPlacebyActivities(name){
+    const data = {
+        name:name
+    }
+    return async dispatch => {
+       const response = await axios.post(`${ROOT_URL}/api/getplacebyactivities`,data)
+        dispatch({
+            type:API_PLACEBYACTIVITIES,
+            payload:response.data
         })
     }
 }
