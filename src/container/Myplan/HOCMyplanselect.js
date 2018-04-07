@@ -3,6 +3,9 @@ import {querybookingById} from "../../action/index";
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 
+
+const mode = withState('mode','setMode',"top")
+
 const Lifecycle = lifecycle({
     componentDidMount(){
         const {id} = this.props.match.params
