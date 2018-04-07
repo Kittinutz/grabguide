@@ -5,7 +5,7 @@ const initailState ={
     meetinglocation:null,
     place:[],
 }
-export default (state=initailState,action){
+export default (state=initailState,action)=>{
     switch (action.type){
         default:
             return state

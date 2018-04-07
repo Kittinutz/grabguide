@@ -1,7 +1,9 @@
 import React from 'react'
-import {Timeline,Input} from 'antd'
-
+import {Timeline,Input,Button,Icon} from 'antd'
+import enhance from './HOCForm';
 const Form = (props)=>{
+    console.log(props);
+    const {myplan,Add} = props;
     return (
         <div className="content">
             <div className="container">
@@ -11,10 +13,14 @@ const Form = (props)=>{
                     <Input placeholder="Basic usage" style={{ width: "50%" }}/>
                     <div className="timeline">
                         <Timeline>
-                            <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
-                            <Timeline.Item>Solve initial network problems 2015-09-01</Timeline.Item>
-                            <Timeline.Item>Technical testing 2015-09-01</Timeline.Item>
-                            <Timeline.Item>Network problems being solved 2015-09-01</Timeline.Item>
+                            {
+                                myplan.place.map(data=>{
+                                    return (
+                                        <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
+                                    )
+                                })
+                            }
+                            <Timeline.Item><Button onClick={Add} type="primary"><Icon type="plus" />Add places</Button></Timeline.Item>
                         </Timeline>
                     </div>
                 </div>
@@ -22,4 +28,4 @@ const Form = (props)=>{
         </div>
     )
 }
-export  default Form;
+export  default enhance(Form)

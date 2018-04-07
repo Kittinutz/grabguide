@@ -1,12 +1,12 @@
 import {API_ACTIVITIES} from "../action/api";
 
-export default function (state = {}, action) {
+export default function (state = [], action) {
     switch (action.type) {
         case
         API_ACTIVITIES:
-            return {...state,activities:action.payload};
+            return action.payload
         default:
-            return state;
+            return false;
     }
 
     return state;

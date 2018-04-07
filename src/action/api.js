@@ -7,3 +7,4 @@ export const STEP1_SUBMIT = 'step1_submit';
 export const BOOKING_NEWS = 'booking_news';
 export const BOOKING_QUERY = 'booking_query';
 export const BOOKING_QUERYBYID ='booking_querybyid';
+export const API_PLACEBYACTIVITIES = 'api_placebyactivities';

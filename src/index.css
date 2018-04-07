@@ -477,7 +477,7 @@ h2 {
     padding: 5% 0%;
 }
 .timeline {
-    padding: 5% 5%;
+    margin:5% 5%;
 }
 .card-trip{
     display: -webkit-box;
@@ -568,4 +568,20 @@ h2 {
     justify-content: flex-start;
     padding: 0 0;
     box-sizing: border-box;
+}
+.activitiesshowdown{
+    padding: 5% 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  text-align: center;
+}
+.activitiesshowdown img{
+    margin: 5% 5%;
+}
+.content-header{
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
