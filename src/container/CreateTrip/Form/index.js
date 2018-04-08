@@ -15,9 +15,9 @@ const Form = (props) => {
           <div className="timeline">
             <Timeline>
               {
-                myplan.place.map(data => {
+                myplan.place.map((data,index) => {
                   return (
-                    <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
+                    <Timelineitem key={index} {...data}/>
                   )
                 })
               }
@@ -27,6 +27,27 @@ const Form = (props) => {
         </div>
       </div>
     </div>
+  )
+};
+const Timelineitem = (props)=>{
+  const {image,name} = props;
+  return (
+    <Timeline.Item>
+      <div className="card-trip">
+        <div className="card-trip-header">
+          <div className="card-tripimage">
+            <img className="image-place" src={image} alt=""/>
+          </div>
+          <div className="place-detail">
+            <div className="name-trip">
+              {name}
+            </div>
+          
+          </div>
+          
+        </div>
+      </div>
+    </Timeline.Item>
   )
 }
 export default enhance(Form)
