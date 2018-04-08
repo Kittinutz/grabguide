@@ -5,13 +5,13 @@ import Header from "../../../component/Header/Header";
 import Footer from '../../../component/Footer/'
 import {
   Form, Select, Radio,
-  DatePicker, Card, Avatar, Icon
+  DatePicker, Card, Avatar, Icon,Button
 } from 'antd';
 
 const {Meta} = Card;
 
 const Places = (props) => {
-  const {places} = props;
+  const {handleClickAdd,places} = props;
   if (places) {
     return (
       <div>
@@ -24,9 +24,7 @@ const Places = (props) => {
                   key={data.id}
                   style={{width: "100%", marginTop: "10%"}}
                   cover={<img alt={data.name} src={data.image}/>}
-                  actions={[<Icon type="book"/>,
-                    <Icon type="edit"/>,
-                    <Icon type="ellipsis"/>]}
+                  actions={[<Button id={data.id}  onClick={handleClickAdd}><Icon type="folder-add"/>Add to my plan</Button>]}
                 >
                   <Meta
                     title={data.name}

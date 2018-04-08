@@ -1,13 +1,17 @@
-import {API_PLACE, API_PLACEBYACTIVITIES} from '../action/api';
+import {API_PLACE, API_PLACEBYACTIVITIES,FILTER_PLACE} from '../action/api';
 
-export default function (state = {}, action) {
+export default function (state = [], action) {
     switch (action.type){
         case
             API_PLACE:
-            return {...state,places:action.payload}
+            return {...state,places:action.payload};
         case
                 API_PLACEBYACTIVITIES:
-            return action.payload
+            return state = action.payload;
+      case
+        FILTER_PLACE:
+            console.log(state);
+        return state;
         default:
             return state
     }
