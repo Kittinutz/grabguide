@@ -3,8 +3,7 @@ import {Timeline, Input, Button, Icon} from 'antd'
 import enhance from './HOCForm';
 
 const Form = (props) => {
-  console.log(props);
-  const {myplan, Add} = props;
+  const {myplan, Add,Deleteplace} = props;
   return (
     <div className="content">
       <div className="container">
@@ -17,7 +16,7 @@ const Form = (props) => {
               {
                 myplan.place.map((data,index) => {
                   return (
-                    <Timelineitem key={index} {...data}/>
+                    <Timelineitem key={index} {...data} Deleteplace={Deleteplace}/>
                   )
                 })
               }
@@ -30,7 +29,8 @@ const Form = (props) => {
   )
 };
 const Timelineitem = (props)=>{
-  const {image,name} = props;
+  const {image,name,id,Deleteplace} = props;
+  console.log(props)
   return (
     <Timeline.Item>
       <div className="card-trip">
@@ -40,8 +40,11 @@ const Timelineitem = (props)=>{
           </div>
           <div className="place-detail">
             <div className="name-trip">
-              {name}
+              {name} <Icon id={id} onClick={Deleteplace} type="close" style={{color:"tomato",fontsize:16}} />
             </div>
+            <span className="trip-detail">
+              description
+            </span>
           
           </div>
           

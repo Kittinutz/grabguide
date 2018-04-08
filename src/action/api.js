@@ -10,3 +10,4 @@ export const BOOKING_QUERYBYID = 'booking_querybyid';
 export const API_PLACEBYACTIVITIES = 'api_placebyactivities';
 export const FILTER_PLACE = 'filter_place';
 export const ADDTO_ARRAY = 'addto_array'
+export const DELETE_PLACE = 'delete_place'

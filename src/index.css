@@ -619,6 +619,13 @@ h2 {
   font-size: 0.938em;
   margin-left: 0px;
 }
+.trip-detail{
+  font-size: 0.750em;
+  padding: 0 0 5px 0;
+  color: rgba(141,141,141,1);
+  text-align: left;
+  line-height: 1.4em;
+}
 .activitiesshowdown{
     padding: 5% 5%;
     display: flex;

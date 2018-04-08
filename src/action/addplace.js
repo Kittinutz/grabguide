@@ -1,7 +1,8 @@
 
 import {
   ADDTO_ARRAY,
-  FILTER_PLACE
+  FILTER_PLACE,
+  DELETE_PLACE
 } from "./api";
 
 export function addplace(id,callback) {
@@ -18,6 +19,16 @@ export function addtoarray(payload,callback) {
       payload:payload,
       type:ADDTO_ARRAY,
     },callback)
+  }
+  
+}
+
+export function Delete(id) {
+  return dispatch=>{
+    dispatch({
+      type:DELETE_PLACE,
+      payload:id
+    })
   }
   
 }
