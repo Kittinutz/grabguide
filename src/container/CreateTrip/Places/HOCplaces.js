@@ -1,5 +1,6 @@
 import {withState,withHandlers,lifecycle,compose } from 'recompose'
 import {GetPlacebyActivities} from '../../../action'
+import {addplace,addtoarray} from '../../../action/addplace';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {FILTER_PLACE} from "../../../action/api";
@@ -11,15 +12,21 @@ const LifeCycle = lifecycle({
 })
 const handleEvent = withHandlers({
   handleClickAdd:props=>event=> {
-    const {id} = event.target
-    console.log(id);
+    let {id} = event.target
+    const {history,places,addtoarray} = props
+    id = parseInt(id);
+    let place = places.filter(data=>data.id === id)
+    place = place[0]
+    return  addtoarray(place,history.push('/createtrip'));
   }
 })
 const mapStateToProps = ({places}) =>{
-    return places
+    return {
+        places
+    }
 }
 const mapDispatchToProps = dispatch => {
-    return bindActionCreators({GetPlacebyActivities}, dispatch);
+    return bindActionCreators({GetPlacebyActivities,addplace,addtoarray}, dispatch);
 };
 
 export default compose(

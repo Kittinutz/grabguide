@@ -9,3 +9,4 @@ export const BOOKING_QUERY = 'booking_query';
 export const BOOKING_QUERYBYID = 'booking_querybyid';
 export const API_PLACEBYACTIVITIES = 'api_placebyactivities';
 export const FILTER_PLACE = 'filter_place';
+export const ADDTO_ARRAY = 'addto_array'
