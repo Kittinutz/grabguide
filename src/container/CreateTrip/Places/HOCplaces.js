@@ -4,9 +4,11 @@ import {addplace,addtoarray} from '../../../action/addplace';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {FILTER_PLACE} from "../../../action/api";
+import React from 'react'
+import Spinner from "../../../component/Spinner/index";
 const LifeCycle = lifecycle({
     componentDidMount(){
-        const {name} = this.props.match.params
+        const {name} = this.props.match.params;
         this.props.GetPlacebyActivities(name);
     }
 })
@@ -18,6 +20,9 @@ const handleEvent = withHandlers({
     let place = places.filter(data=>data.id === id)
     place = place[0]
     return  addtoarray(place,history.push('/createtrip'));
+  },
+  LoadingPictrue:props=>event=>{
+    return <Spinner/>
   }
 })
 const mapStateToProps = ({places}) =>{

@@ -34,7 +34,6 @@ class Myplan extends Component {
     }
 
     componentWillMount() {
-        this.props.GetPlaceApi();
         this.props.GetActivitiesAPi();
         this.props.querybooking();
 
@@ -104,8 +103,6 @@ class Myplan extends Component {
 
 function mapStateToProps({place, activities, mytrip}) {
     return {
-        place,
-        activities,
         mytrip
     }
 

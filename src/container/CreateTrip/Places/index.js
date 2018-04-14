@@ -23,7 +23,7 @@ const Places = (props) => {
                 <Card
                   key={data.id}
                   style={{width: "100%", marginTop: "10%"}}
-                  cover={<img alt={data.name} src={data.image}/>}
+                  cover={<img alt={data.name} src={data.image} />}
                   actions={[<Button id={data.id}  onClick={handleClickAdd}><Icon type="folder-add"/>Add to my plan</Button>]}
                 >
                   <Meta
