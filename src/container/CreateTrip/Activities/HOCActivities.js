@@ -9,7 +9,7 @@ const Lifecycle = lifecycle({
     }
 })
 const handlerEvent = withHandlers({
-    handlcerClick:props =>event =>{
+    handlcerClickActivities:props =>event =>{
         var {alt} = event.target;
         alt = alt.split(" ").join("-")
         props.history.push(`/createtrip/activities/${alt}`)

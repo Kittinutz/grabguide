@@ -14,13 +14,14 @@ import adventure from '../../../asset/icon/011-climbing.png'
 import history from '../../../asset/icon/012-book.png'
 import farming from '../../../asset/icon/nature.png'
 import Spinner from "../../../component/Spinner/index";
-
+import Lazyload from 'react-lazy-load'
 const ROOT_URL = "http://dev.werapun.com:5011";
 
 const Activities = (props) => {
   const {activities} = props;
-  console.log(props)
-  if (activities) {
+  console.log(props);
+  console.log(!!activities.length>0)
+  if (!!activities.length!=0) {
     return (
       <div className="content">
         <div className="container">
@@ -45,18 +46,19 @@ const Activities = (props) => {
         </div>
       </div>
     )
-  } else {
+  } else{
     return <Spinner/>
   }
 }
 const ActivitiesItem = (props) => {
-  const {id, image, name, history, handlcerClick} = props
+  const {id, image, name, history, handlcerClickActivities} = props
   
   return (
     <div className="imageactivities">
+      
       <img src={`${ROOT_URL}/${image}`}
            alt={name}
-           onClick={handlcerClick}
+           onClick={handlcerClickActivities}
            id={id}
       />
       <p>{name}</p>

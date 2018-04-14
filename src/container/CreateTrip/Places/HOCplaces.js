@@ -9,7 +9,9 @@ import Spinner from "../../../component/Spinner/index";
 const LifeCycle = lifecycle({
     componentDidMount(){
         const {name} = this.props.match.params;
-        this.props.GetPlacebyActivities(name);
+        const {myplan} = this.props;
+    
+        this.props.GetPlacebyActivities(name,myplan.place);
     }
 })
 const handleEvent = withHandlers({
@@ -25,9 +27,10 @@ const handleEvent = withHandlers({
     return <Spinner/>
   }
 })
-const mapStateToProps = ({places}) =>{
+const mapStateToProps = ({places,myplan}) =>{
     return {
-        places
+        places,
+      myplan
     }
 }
 const mapDispatchToProps = dispatch => {

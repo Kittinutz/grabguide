@@ -63,7 +63,7 @@ export function GetActivitiesAPi() {
   }
 }
 
-export function GetPlacebyActivities(name) {
+export function GetPlacebyActivities(name,onselect) {
   const data = {
     name: name
   }
@@ -71,7 +71,8 @@ export function GetPlacebyActivities(name) {
     const response = await axios.post(`${ROOT_URL}/api/getplacebyactivities`, data)
     dispatch({
       type: API_PLACEBYACTIVITIES,
-      payload: response.data
+      payload: response.data,
+      onselect:onselect
     })
   }
 }
