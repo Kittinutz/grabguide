@@ -13,7 +13,6 @@ const {Meta} = Card;
 
 const Places = (props) => {
   const {handleClickAdd, places} = props;
-  console.log(places)
   if (places.length > 0) {
     return (
       <div>
@@ -21,7 +20,7 @@ const Places = (props) => {
         <div className="content">
           {
             places.map(data => {
-              return (<LazyLoad throttle={200}>
+              return (<LazyLoad key={data.id} height={200} throttle={200}>
                 <Card
                   key={data.id}
                   style={{width: "100%", marginTop: "10%"}}

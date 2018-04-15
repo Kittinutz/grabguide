@@ -12,7 +12,7 @@ class Tripcontent extends Component {
     return _.map(this.props.trips, value => {
       return (
         
-        <div key={value.id} className="trip-guide">
+        <div key={value.id} className="trip-guide  animated fadeIn ">
           <Link to={`/trip/${value.id}`}>
             <img
               className="img"

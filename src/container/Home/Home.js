@@ -14,11 +14,11 @@ const Home =(props)=>{
         <div>
             <Header icon="search"/>
             <div className="content">
-                <div className="content header">
+                <div className="content header animated fadeIn">
                     <img src={logo} alt=""/>
                 </div>
                 <Tripcontent trips={props.trips}/>
-                <div className="container">
+                <div className="container animated fadeIn">
                     <div className="recommencetripbyguide">
                         <h2>Community Base Tourism</h2>
                     </div>

@@ -19,8 +19,7 @@ const ROOT_URL = "http://dev.werapun.com:5011";
 
 const Activities = (props) => {
   const {activities} = props;
-  console.log(props);
-  console.log(!!activities.length>0)
+
   if (!!activities.length!=0) {
     return (
       <div className="content">
@@ -29,16 +28,19 @@ const Activities = (props) => {
             <h3> Choose your Activities</h3>
           </div>
           
-          <div className="activitiesshowdown">
+          <div className="activitiesshowdown animated fadeIn">
             {
               activities.map(data => {
                 return (
+                  <Lazyload key={data.id}>
                   <ActivitiesItem key={data.id}
                                   id={data.id}
                                   image={data.image}
                                   name={data.name}
                                   {...props}/>
+                  </Lazyload>
                 )
+             
               })
             }
           

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './App.css';
 import './spinner.css';
 import 'react-credit-cards/lib/styles.scss';
 import registerServiceWorker from './registerServiceWorker';
