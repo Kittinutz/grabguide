@@ -12,3 +12,5 @@ export const FILTER_PLACE = 'filter_place';
 export const ADDTO_ARRAY = 'addto_array';
 export const DELETE_PLACE = 'delete_place';
 export const  ADD_CHILDREN = 'add_children';
+export const ADD_ADULT = 'add_adult';
+export const ADD_APPOINTMENT = 'add_appointment';

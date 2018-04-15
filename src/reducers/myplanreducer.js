@@ -1,8 +1,9 @@
-import {ADDTO_ARRAY, DELETE_PLACE} from "../action/api";
+import {ADD_CHILDREN, ADDTO_ARRAY, DELETE_PLACE,ADD_ADULT} from "../action/api";
 
 const initailState ={
     appointment:null,
-    person:null,
+    adult:null,
+    children:null,
     haschilde:false,
     meetinglocation:null,
     place:[],
@@ -16,6 +17,13 @@ export default (state=initailState,action)=>{
       case
           DELETE_PLACE:
         const newPlace =  state.place.filter(data=>data.id!=action.payload);
+      case
+        ADD_CHILDREN:
+        console.log(typeof action.payload)
+        return {...state,children:action.payload}
+      case
+        ADD_ADULT:
+        return {...state,adult:action.payload}
         
         
       return {...state,place:newPlace}

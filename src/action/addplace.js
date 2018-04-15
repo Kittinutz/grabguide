@@ -2,7 +2,8 @@ import {
   ADDTO_ARRAY,
   FILTER_PLACE,
   DELETE_PLACE,
-  ADD_CHILDREN
+  ADD_CHILDREN,
+  ADD_ADULT, ADD_APPOINTMENT
 } from "./api";
 
 export function addplace(id, callback) {
@@ -24,7 +25,7 @@ export function addtoarray(payload, callback) {
   
 }
 
-export function addchildren(number) {
+export function Addchildren(number) {
   return dispatch => {
     dispatch({
       type: ADD_CHILDREN,
@@ -32,7 +33,21 @@ export function addchildren(number) {
     })
   }
 }
-
+export function AddAdult(number) {
+  return dispatch => {
+    dispatch({
+      type: ADD_ADULT,
+      payload: number
+    })
+  }
+}
+export function AddAppointment(data) {
+  return {
+    type: ADD_APPOINTMENT,
+    payload:data
+  }
+  
+}
 export function Delete(id) {
   return dispatch => {
     dispatch({
