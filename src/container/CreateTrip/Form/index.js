@@ -4,7 +4,18 @@ import {Timeline, Input, InputNumber, Button, Icon, DatePicker} from 'antd'
 import enhance from './HOCForm';
 
 const Form = (props) => {
-  const {myplan, Add, Deleteplace, AdultNumber, ChildrenNumber,Appointment} = props;
+  const {
+    myplan,
+    Add,
+    Deleteplace,
+    AdultNumber,
+    ChildrenNumber,
+    Appointment,
+    onSubmit,
+    DateState,
+    NameState,
+    AddName
+  } = props;
   console.log(props)
   return (
     <div className="content animated fadeIn">
@@ -12,9 +23,11 @@ const Form = (props) => {
         <div className="createtrip">
           <h3>Create your trip</h3>
           <label htmlFor="">Trip name</label>
-          <Input placeholder="Trip name" style={{width: "50%"}}/>
+          <Input placeholder="Trip name" style={{width: "50%"}} onChange={AddName}/>
+          <label htmlFor="" style={{fontsize:"1em",color:"red"}}>{NameState?"invalid Name":null}</label>
           <label htmlFor="">Date</label>
-          <DatePicker style={{width: "50%"}} onChange={Appointment} />
+          <DatePicker style={{width: "50%"}} onChange={Appointment}/>
+          <label htmlFor="" style={{fontsize:"1em",color:"red"}}>{DateState?"invalid Appointment":null}</label>
           <label htmlFor="">Number of Adult</label>
           <InputNumber name="adult" min={1} max={10} defaultValue={1} onChange={AdultNumber}/>
           <label htmlFor="">Number of Children</label>
@@ -33,7 +46,7 @@ const Form = (props) => {
               <Timeline.Item><Button onClick={Add} type="primary"><Icon type="plus"/>Add places</Button></Timeline.Item>
             </Timeline>
           </div>
-          <Button onClick={Add} type="primary"><Icon type="plus-circle"/>Commit</Button>
+          <Button onClick={onSubmit} type="primary"><Icon type="plus-circle"/>Commit</Button>
         </div>
       </div>
     </div>

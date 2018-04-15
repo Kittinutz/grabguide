@@ -14,3 +14,4 @@ export const DELETE_PLACE = 'delete_place';
 export const  ADD_CHILDREN = 'add_children';
 export const ADD_ADULT = 'add_adult';
 export const ADD_APPOINTMENT = 'add_appointment';
+export const ADD_NAME = 'add_name';

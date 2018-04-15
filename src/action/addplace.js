@@ -3,7 +3,7 @@ import {
   FILTER_PLACE,
   DELETE_PLACE,
   ADD_CHILDREN,
-  ADD_ADULT, ADD_APPOINTMENT
+  ADD_ADULT, ADD_APPOINTMENT,ADD_NAME
 } from "./api";
 
 export function addplace(id, callback) {
@@ -39,6 +39,12 @@ export function AddAdult(number) {
       type: ADD_ADULT,
       payload: number
     })
+  }
+}
+export function Addname(value) {
+  return {
+    type:ADD_NAME,
+    payload:value
   }
 }
 export function AddAppointment(data) {

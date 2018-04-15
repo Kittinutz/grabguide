@@ -1,11 +1,12 @@
-import {ADD_CHILDREN, ADDTO_ARRAY, DELETE_PLACE, ADD_ADULT, ADD_APPOINTMENT} from "../action/api";
+import {ADD_CHILDREN, ADDTO_ARRAY, DELETE_PLACE, ADD_ADULT, ADD_APPOINTMENT, ADD_NAME} from "../action/api";
 
 const initailState ={
-    appointment:null,
-    adult:null,
-    children:null,
+  name:false,
+    appointment:false,
+    adult:false,
+    children:false,
     haschilde:false,
-    meetinglocation:null,
+    meetinglocation:false,
     place:[],
 }
 export default (state=initailState,action)=>{
@@ -26,7 +27,10 @@ export default (state=initailState,action)=>{
         return {...state,adult:action.payload};
       case
         ADD_APPOINTMENT:
-        return {...state,appointment:action.payload}
+        return {...state,appointment:action.payload};
+      case
+        ADD_NAME:
+        return {...state,name:action.payload};
         
         
       return {...state,place:newPlace}
