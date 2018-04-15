@@ -1,8 +1,12 @@
-import {withState, withHandlers, compose} from 'recompose'
+import {withState, withHandlers, compose,lifecycle} from 'recompose'
 import {bindActionCreators} from 'redux'
-import {Delete,Addchildren,AddAdult,AddAppointment,Addname,CreatTask} from "../../../action/addplace";
+import {Delete,Addchildren,AddAdult,AddAppointment,Addname,CreatTask,fetchLanguages} from "../../../action/addplace";
 import {connect} from 'react-redux'
-
+const Lifecycle = lifecycle({
+  componentDidMount(){
+    this.props.fetchLanguages();
+  }
+})
 const DateState = withState("DateState","setDateState",false);
 const NameState = withState("NameState","setNameState",false);
 const PlaceState = withState("PlaceState","setPlaceState",false);
@@ -48,9 +52,10 @@ const handleEvent = withHandlers({
     
   }
 });
-const mapStateToProps = ({myplan}) => {
+const mapStateToProps = ({myplan,languages}) => {
   return {
     myplan,
+    languages,
   }
 };
 const mapDispachToProps = dispatch => {
@@ -59,11 +64,13 @@ const mapDispachToProps = dispatch => {
     AddAdult,
     AddAppointment,
     Addname,
-    CreatTask}, dispatch)
+    CreatTask,
+    fetchLanguages}, dispatch)
 };
 
 export default compose(
   connect(mapStateToProps, mapDispachToProps),
+  Lifecycle,
   DateState,
   NameState,
   PlaceState,
