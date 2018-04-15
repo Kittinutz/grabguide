@@ -8,8 +8,11 @@ const handleEvent = withHandlers({
   Add: props => event => {
     props.history.push('/createtrip/add');
   },
-  Deleteplace:props => event =>{
-   const {Delete} = props;
+  PersonNumbe: props => event => {
+  console.log(event)
+  },
+  Deleteplace: props => event => {
+    const {Delete} = props;
     const {id} = event.target;
     Delete(id)
   }
@@ -19,8 +22,8 @@ const mapStateToProps = ({myplan}) => {
     myplan,
   }
 }
-const mapDispachToProps = dispatch =>{
-  return bindActionCreators({Delete},dispatch)
+const mapDispachToProps = dispatch => {
+  return bindActionCreators({Delete}, dispatch)
 }
 
 export default compose(

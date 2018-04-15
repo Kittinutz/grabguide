@@ -1,10 +1,10 @@
 import React from 'react'
-import {Timeline, Input, Button, Icon,DatePicker} from 'antd'
+import {Timeline, Input,InputNumber, Button, Icon,DatePicker} from 'antd'
 
 import enhance from './HOCForm';
 
 const Form = (props) => {
-  const {myplan, Add,Deleteplace} = props;
+  const {myplan, Add,Deleteplace,PersonNumbe} = props;
   return (
     <div className="content animated fadeIn">
       <div className="container">
@@ -14,6 +14,10 @@ const Form = (props) => {
           <Input placeholder="Trip name" style={{width: "50%"}}/>
           <label htmlFor="">Date</label>
           <DatePicker style={{width:"50%"}} />
+          <label htmlFor="">Number of Adult</label>
+          <InputNumber name="adult" min={1} max={10} defaultValue={1} onChange={PersonNumbe}/>
+          <label htmlFor="">Number of Children</label>
+          <InputNumber name="children" min={1} max={10} defaultValue={1}/>
           <h3>Select your place </h3>
           <div className="timeline">
             <Timeline>
