@@ -14,7 +14,8 @@ const Form = (props) => {
     onSubmit,
     DateState,
     NameState,
-    AddName
+    AddName,
+    PlaceState
   } = props;
   console.log(props)
   return (
@@ -24,16 +25,17 @@ const Form = (props) => {
           <h3>Create your trip</h3>
           <label htmlFor="">Trip name</label>
           <Input placeholder="Trip name" style={{width: "50%"}} onChange={AddName}/>
-          <label htmlFor="" style={{fontsize:"1em",color:"red"}}>{NameState?"invalid Name":null}</label>
+          <label className="valid" style={{fontsize:"1em",color:"red"}}>{NameState?"invalid Name":null}</label>
           <label htmlFor="">Date</label>
           <DatePicker style={{width: "50%"}} onChange={Appointment}/>
-          <label htmlFor="" style={{fontsize:"1em",color:"red"}}>{DateState?"invalid Appointment":null}</label>
+          <label className="valid"  style={{fontsize:"1em",color:"red"}}>{DateState?"invalid Appointment":null}</label>
           <label htmlFor="">Number of Adult</label>
           <InputNumber name="adult" min={1} max={10} defaultValue={1} onChange={AdultNumber}/>
           <label htmlFor="">Number of Children</label>
           <InputNumber name="children" min={1} max={10} defaultValue={1} onChange={ChildrenNumber}/>
           
           <h3>Select your place </h3>
+          <label className="valid"  style={{fontsize:"1em",color:"red"}}>{PlaceState?"Places Select Places":null}</label>
           <div className="timeline">
             <Timeline>
               {
