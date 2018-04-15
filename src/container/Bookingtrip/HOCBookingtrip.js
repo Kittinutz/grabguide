@@ -13,7 +13,7 @@ const Lifecycle = lifecycle(
       console.log(this.props);
       // const {id} = this.props.match.params;
       if (!this.props.authentication.isAuth) {
-        return this.props.history.push(`/facebook/`);
+        return this.props.history.push(`/login/facebook`);
       } else {
         return this.props.fetchmessage();
       }

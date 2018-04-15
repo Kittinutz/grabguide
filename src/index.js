@@ -43,7 +43,7 @@ ReactDOM.render((
                 <Switch>
 
                     <Route path="/createtrip" component={Createtrip} />
-                    <Route path="/facebook" component={FaceBook} />
+                    <Route path="/login/facebook" component={FaceBook} />
                     <Route path="/booking/trip/:id" component={Bookingtrip}/>
                     <Route path="/trip/:id" component={Trip}/>
                     <Route path="/profile" component={Profile} />
