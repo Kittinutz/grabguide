@@ -1,8 +1,11 @@
 import React from 'react'
-import {Timeline, Input, InputNumber, Button, Icon, DatePicker} from 'antd'
-
 import enhance from './HOCForm';
+import {Timeline, Input, InputNumber, Button, Icon, DatePicker,Select} from 'antd'
+const Option = Select.Option;
 
+function handleChange(value) {
+  console.log(`Selected: ${value}`);
+}
 const Form = (props) => {
   const {
     myplan,
@@ -18,6 +21,10 @@ const Form = (props) => {
     PlaceState
   } = props;
   console.log(props)
+  const children = [];
+  for (let i = 10; i < 36; i++) {
+    children.push(<Option key={i.toString(36) + i} value={i}>{i.toString(36) + i}</Option>);
+  }
   return (
     <div className="content animated fadeIn">
       <div className="container">
@@ -33,7 +40,17 @@ const Form = (props) => {
           <InputNumber name="adult" min={1} max={10} defaultValue={1} onChange={AdultNumber}/>
           <label htmlFor="">Number of Children</label>
           <InputNumber name="children" min={0} max={10} defaultValue={0} onChange={ChildrenNumber}/>
-          
+          <label htmlFor="">Select you Languages</label>
+          <Select
+            mode="multiple"
+            placeholder="Please select"
+            defaultValue={['a10', 'c12']}
+            onChange={handleChange}
+            style={{ width: '100%' }}
+          >
+            <Option value="1">Jack</Option>
+            <Option value="2">Lucy</Option>
+          </Select>
           <h3>Select your place </h3>
           <label className="valid" >{PlaceState?"Places Select Places":null}</label>
           <div className="timeline">

@@ -10,18 +10,21 @@ import bookingtripid from './bookingtripid'
 import status from './status'
 import authentication from './authentication'
 import myplan from './myplanreducer'
-const rootReducers = combineReducers({
-    trips: tripreducer,
-    guides: guidereducer,
-    places,
-    activities,
-    tripseleted: tripseleted,
-    bookingdetail:bookingreducer,
-    mytrip:bookingtrip,
-    status,
-    authentication,
-    bookingtripid,
-    myplan
+import languages from './languagesreducer'
 
+const rootReducers = combineReducers({
+  trips: tripreducer,
+  guides: guidereducer,
+  places,
+  activities,
+  tripseleted: tripseleted,
+  bookingdetail: bookingreducer,
+  mytrip: bookingtrip,
+  status,
+  authentication,
+  bookingtripid,
+  myplan,
+  languages
+  
 });
 export default rootReducers;

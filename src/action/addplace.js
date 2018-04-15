@@ -4,9 +4,10 @@ import {
   FILTER_PLACE,
   DELETE_PLACE,
   ADD_CHILDREN,
-  ADD_ADULT, ADD_APPOINTMENT,ADD_NAME
+  ADD_ADULT, ADD_APPOINTMENT,ADD_NAME,
+  FETCHH_LANGUAGES
 } from "./api";
-
+const ROOT_URL = 'http://dev.werapun.com:5011';
 export function addplace(id, callback) {
   return dispatch => {
     dispatch({
@@ -16,6 +17,16 @@ export function addplace(id, callback) {
   }
 }
 
+export function fetchLanguages() {
+  return dispatch=>{
+    const response = axios.get(`${ROOT_URL}/api/browser/languages`)
+    dispatch({
+      type:FETCH_LANGUAGES,
+      payload:response.data
+    })
+  }
+  
+}
 export function addtoarray(payload, callback) {
   return dispatch => {
     dispatch({
