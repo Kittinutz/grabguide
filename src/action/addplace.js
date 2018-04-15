@@ -1,3 +1,4 @@
+import axios from  'axios'
 import {
   ADDTO_ARRAY,
   FILTER_PLACE,
@@ -66,7 +67,11 @@ export function Delete(id) {
 export function CreatTask(payload){
   return async dispatch =>{
     const token = localStorage.getItem('token');
-    console.log('token is:',token)
-    console.log('payload is:',payload)
+    const response = await axios.post('http://localhost:5011/createtask',payload,{
+      headers: {
+        authorization: token
+      }
+    })
+    console.log(response);
   }
 }
