@@ -25,17 +25,17 @@ const Form = (props) => {
           <h3>Create your trip</h3>
           <label htmlFor="">Trip name</label>
           <Input placeholder="Trip name" style={{width: "50%"}} onChange={AddName}/>
-          <label className="valid" style={{fontsize:"1em",color:"red"}}>{NameState?"invalid Name":null}</label>
+          <label className="valid" >{NameState?"invalid Name":null}</label>
           <label htmlFor="">Date</label>
           <DatePicker style={{width: "50%"}} onChange={Appointment}/>
-          <label className="valid"  style={{fontsize:"1em",color:"red"}}>{DateState?"invalid Appointment":null}</label>
+          <label className="valid" >{DateState?"invalid Appointment":null}</label>
           <label htmlFor="">Number of Adult</label>
           <InputNumber name="adult" min={1} max={10} defaultValue={1} onChange={AdultNumber}/>
           <label htmlFor="">Number of Children</label>
           <InputNumber name="children" min={0} max={10} defaultValue={0} onChange={ChildrenNumber}/>
           
           <h3>Select your place </h3>
-          <label className="valid"  style={{fontsize:"1em",color:"red"}}>{PlaceState?"Places Select Places":null}</label>
+          <label className="valid" >{PlaceState?"Places Select Places":null}</label>
           <div className="timeline">
             <Timeline>
               {

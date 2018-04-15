@@ -642,3 +642,7 @@ h2 {
     align-items: center;
     justify-content: center;
 }
+.valid{
+  font-size: 1em;
+  color: tomato;
+}
