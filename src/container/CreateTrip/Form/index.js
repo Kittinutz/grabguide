@@ -1,5 +1,6 @@
 import React from 'react'
-import {Timeline, Input, Button, Icon} from 'antd'
+import {Timeline, Input, Button, Icon,DatePicker} from 'antd'
+
 import enhance from './HOCForm';
 
 const Form = (props) => {
@@ -10,7 +11,10 @@ const Form = (props) => {
         <div className="createtrip">
           <h3>Create your trip</h3>
           <label htmlFor="">Trip name</label>
-          <Input placeholder="Basic usage" style={{width: "50%"}}/>
+          <Input placeholder="Trip name" style={{width: "50%"}}/>
+          <label htmlFor="">Date</label>
+          <DatePicker style={{width:"50%"}} />
+          <h3>Select your place </h3>
           <div className="timeline">
             <Timeline>
               {

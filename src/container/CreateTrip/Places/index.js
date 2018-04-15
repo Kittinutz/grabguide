@@ -7,6 +7,7 @@ import {
   Form, Select, Radio,
   DatePicker, Card, Avatar, Icon, Button
 } from 'antd';
+import LazyLoad from 'react-lazyload';
 
 const {Meta} = Card;
 
@@ -20,7 +21,7 @@ const Places = (props) => {
         <div className="content">
           {
             places.map(data => {
-              return (
+              return (<LazyLoad throttle={200}>
                 <Card
                   key={data.id}
                   style={{width: "100%", marginTop: "10%"}}
@@ -33,6 +34,7 @@ const Places = (props) => {
                     description={data.description}
                   />
                 </Card>
+            </LazyLoad>
               
               )
             })
@@ -43,17 +45,7 @@ const Places = (props) => {
       </div>
     )
   } else {
-    return (
-      <div>
-        <Header {...props}/>
-        <div className="content">
-          <div className="container">
-            <h1>No more places ....</h1>
-          </div>
-        </div>
-        <Footer/>
-      </div>
-    )
+    return <Spinner/>
   }
 }
 export default enhance(Places);
