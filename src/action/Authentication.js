@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {AUTH_USER, FETCH_USER} from './type';
+import {AUTH_USER, FETCH_USER,UNAUTH_USER} from './type';
 import {BrowserRouter} from 'react-router-dom';
 
 const ROOT_URL = 'http://dev.werapun.com:5011';
@@ -32,6 +32,19 @@ export function fetchmessage() {
       payload: response.data
     })
   }
-  
-  
 }
+
+  export function Logout(callback) {
+    localStorage.removeItem('token');
+    
+    return dispatch=> {
+      dispatch({
+        type:UNAUTH_USER
+        
+      },()=>{
+        callback();
+      })
+    }
+  
+  }
+  

@@ -27,6 +27,7 @@ const Form = (props) => {
               <Timeline.Item><Button onClick={Add} type="primary"><Icon type="plus"/>Add places</Button></Timeline.Item>
             </Timeline>
           </div>
+          <Button onClick={Add} type="primary"><Icon type="plus-circle" />Commit</Button>
         </div>
       </div>
     </div>
