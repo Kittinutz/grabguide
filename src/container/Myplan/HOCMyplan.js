@@ -1,6 +1,7 @@
 import {withState, compose, withHandlers, lifecycle} from 'recompose'
 import {connect} from 'react-redux'
 import {bindActionCreators} from "redux";
+import {fetchmessage} from '../../action/Authentication';
 const Lifecycle = lifecycle(
   {
     componentDidMount() {
@@ -14,6 +15,15 @@ const Lifecycle = lifecycle(
     }
   }
 );
+const mapStateToProps = ({bookingdetail, authentication}) => {
+  return {
+    bookingdetail,
+    authentication
+  }
+}
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({fetchmessage, booking}, dispatch);
+};
 export default compose(
   Lifecycle,
 )
