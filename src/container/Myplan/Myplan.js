@@ -10,6 +10,7 @@ import {
      DatePicker,Card,Avatar,Icon
 } from 'antd';
 import {Link} from 'react-router-dom'
+import Spinner from "../../component/Spinner/index";
 const {MonthPicker, RangePicker, WeekPicker} = DatePicker;
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -20,10 +21,47 @@ const { Meta } = Card;
 
 const Myplan =(props)=>{
     console.log(props)
-    return (
-      <div>
-          Helloworld
-      </div>
+    const {mytrip,HandleClickIcon} = props;
+    if(mytrip.length>0) {
+      return (
+    
+        <div>
+            <Header icon="plus-circle-o" handleClick={HandleClickIcon}/>
+            <div className="content">
+              {
+                _.map(mytrip,data=>{
+                  console.log(data)
+                  return(
+                  <MyplanItem key={data.id} {...data}/>
+              
+                  )
+                })
+            
+              }
+            </div>
+            <Footer/>
+        </div>
+      )
+    }else {
+        return <Spinner/>
+    }
+}
+const MyplanItem = (props)=>{
+  const {id,trip,name} = props
+    return(
+      <Card
+        key={id}
+        style={{ width: "100%" ,marginTop:"10%" }}
+        cover={<img alt={name} src={trip.image} />}
+        actions={[<Link to={`/myplan/${id}`}><Icon type="book" /></Link>, <Icon type="edit" />, <Icon type="ellipsis" />]}
+      >
+          <Meta
+            avatar={<Avatar src={trip.guide.image} />}
+            title={trip.name}
+            description={trip.description}
+          />
+      </Card>
+      
     )
 }
 export default enhance(Myplan)
