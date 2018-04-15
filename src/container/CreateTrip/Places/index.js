@@ -17,8 +17,9 @@ const Places = (props) => {
     return (
       <div>
         <Header {...props}/>
-        <div className="content">
+        <div className="content animated fadeIn">
           {
+            
             places.map(data => {
               return (<LazyLoad key={data.id} height={200} throttle={200}>
                 <Card

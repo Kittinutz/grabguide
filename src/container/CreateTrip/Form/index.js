@@ -6,7 +6,7 @@ import enhance from './HOCForm';
 const Form = (props) => {
   const {myplan, Add,Deleteplace} = props;
   return (
-    <div className="content">
+    <div className="content animated fadeIn">
       <div className="container">
         <div className="createtrip">
           <h3>Create your trip</h3>

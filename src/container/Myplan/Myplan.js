@@ -27,7 +27,7 @@ const Myplan =(props)=>{
     
         <div>
             <Header icon="plus-circle-o" handleClick={HandleClickIcon}/>
-            <div className="content">
+            <div className="content animated fadeIn">
               {
                 _.map(mytrip,data=>{
                   console.log(data)
