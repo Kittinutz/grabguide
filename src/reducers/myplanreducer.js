@@ -1,4 +1,4 @@
-import {ADD_CHILDREN, ADDTO_ARRAY, DELETE_PLACE,ADD_ADULT} from "../action/api";
+import {ADD_CHILDREN, ADDTO_ARRAY, DELETE_PLACE, ADD_ADULT, ADD_APPOINTMENT} from "../action/api";
 
 const initailState ={
     appointment:null,
@@ -20,10 +20,13 @@ export default (state=initailState,action)=>{
       case
         ADD_CHILDREN:
         console.log(typeof action.payload)
-        return {...state,children:action.payload}
+        return {...state,children:action.payload};
       case
         ADD_ADULT:
-        return {...state,adult:action.payload}
+        return {...state,adult:action.payload};
+      case
+        ADD_APPOINTMENT:
+        return {...state,appointment:action.payload}
         
         
       return {...state,place:newPlace}
