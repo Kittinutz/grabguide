@@ -3,7 +3,7 @@ import {ADD_CHILDREN, ADDTO_ARRAY, DELETE_PLACE, ADD_ADULT, ADD_APPOINTMENT, ADD
 const initailState ={
   name:false,
     appointment:false,
-    adult:false,
+    adult:1,
     children:false,
     haschilde:false,
     meetinglocation:false,

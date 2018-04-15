@@ -63,3 +63,10 @@ export function Delete(id) {
   }
   
 }
+export function CreatTask(payload){
+  return async dispatch =>{
+    const token = localStorage.getItem('token');
+    console.log('token is:',token)
+    console.log('payload is:',payload)
+  }
+}

@@ -32,7 +32,7 @@ const Form = (props) => {
           <label htmlFor="">Number of Adult</label>
           <InputNumber name="adult" min={1} max={10} defaultValue={1} onChange={AdultNumber}/>
           <label htmlFor="">Number of Children</label>
-          <InputNumber name="children" min={1} max={10} defaultValue={1} onChange={ChildrenNumber}/>
+          <InputNumber name="children" min={0} max={10} defaultValue={0} onChange={ChildrenNumber}/>
           
           <h3>Select your place </h3>
           <label className="valid"  style={{fontsize:"1em",color:"red"}}>{PlaceState?"Places Select Places":null}</label>

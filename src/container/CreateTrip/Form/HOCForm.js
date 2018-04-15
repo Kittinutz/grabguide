@@ -1,6 +1,6 @@
 import {withState, withHandlers, compose} from 'recompose'
 import {bindActionCreators} from 'redux'
-import {Delete,Addchildren,AddAdult,AddAppointment,Addname} from "../../../action/addplace";
+import {Delete,Addchildren,AddAdult,AddAppointment,Addname,CreatTask} from "../../../action/addplace";
 import {connect} from 'react-redux'
 
 const DateState = withState("DateState","setDateState",false);
@@ -42,7 +42,7 @@ const handleEvent = withHandlers({
     } if(place.length==0){
       setPlaceState(!PlaceState)
     } if(name&&appointment){
-    console.log('submit')
+    props.CreatTask(myplan)
     }
    
     
@@ -58,7 +58,8 @@ const mapDispachToProps = dispatch => {
     Addchildren,
     AddAdult,
     AddAppointment,
-    Addname}, dispatch)
+    Addname,
+    CreatTask}, dispatch)
 };
 
 export default compose(
