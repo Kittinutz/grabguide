@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './App.css';
 import './spinner.css';
 import 'react-credit-cards/lib/styles.scss';
 import registerServiceWorker from './registerServiceWorker';
@@ -43,7 +44,7 @@ ReactDOM.render((
                 <Switch>
 
                     <Route path="/createtrip" component={Createtrip} />
-                    <Route path="/facebook" component={FaceBook} />
+                    <Route path="/login/facebook" component={FaceBook} />
                     <Route path="/booking/trip/:id" component={Bookingtrip}/>
                     <Route path="/trip/:id" component={Trip}/>
                     <Route path="/profile" component={Profile} />

@@ -4,43 +4,48 @@ import Spinner from "../../../component/Spinner/index";
 import Header from "../../../component/Header/Header";
 import Footer from '../../../component/Footer/'
 import {
-    Form, Select, Radio,
-    DatePicker,Card,Avatar,Icon
+  Form, Select, Radio,
+  DatePicker, Card, Avatar, Icon, Button
 } from 'antd';
-const { Meta } = Card;
+import LazyLoad from 'react-lazyload';
 
-const Places = (props)=>{
-    const {places} = props;
-    if(places) {
-        return (
-            <div>
-               <Header {...props}/>
-                <div className="content">
-                    {
-                        places.map(data=>{
-                            return(
-                                <Card
-                                    key={data.id}
-                                    style={{ width: "100%" ,marginTop:"10%" }}
-                                    cover={<img alt={data.name} src={data.image} />}
-                                    actions={[<Icon type="book" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
-                                >
-                                    <Meta
-                                        title={data.name}
-                                        description={data.description}
-                                    />
-                                </Card>
+const {Meta} = Card;
 
-                            )
-                        })
-
-                    }
-                </div>
-                <Footer/>
-            </div>
-        )
-    }else{
-        return <Spinner/>
-    }
+const Places = (props) => {
+  const {handleClickAdd, places} = props;
+  if (places.length > 0) {
+    return (
+      <div>
+        <Header {...props}/>
+        <div className="content animated fadeIn">
+          {
+            
+            places.map(data => {
+              return (<LazyLoad key={data.id} height={200} throttle={200}>
+                <Card
+                  key={data.id}
+                  style={{width: "100%", marginTop: "10%"}}
+                  cover={<img alt={data.name} src={data.image}/>}
+                  actions={[<Button id={data.id} onClick={handleClickAdd}><Icon type="folder-add"/>Add to my
+                    plan</Button>]}
+                >
+                  <Meta
+                    title={data.name}
+                    description={data.description}
+                  />
+                </Card>
+            </LazyLoad>
+              
+              )
+            })
+            
+          }
+        </div>
+        <Footer/>
+      </div>
+    )
+  } else {
+    return <Spinner/>
+  }
 }
-export default  enhance(Places);
+export default enhance(Places);

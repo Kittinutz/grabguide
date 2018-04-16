@@ -58,7 +58,7 @@ const Trip = (props) => {
             <Footer/>
         </div>
     )}
-    else if(!status.isFetchTripselected){
+    else{
         return <Spinner/>
 
     }
