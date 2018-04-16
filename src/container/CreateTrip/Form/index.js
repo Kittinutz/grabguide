@@ -18,7 +18,8 @@ const Form = (props) => {
     DateState,
     NameState,
     AddName,
-    PlaceState
+    PlaceState,
+    languages
   } = props;
   console.log(props)
   const children = [];
@@ -44,12 +45,16 @@ const Form = (props) => {
           <Select
             mode="multiple"
             placeholder="Please select"
-            defaultValue={['a10', 'c12']}
             onChange={handleChange}
             style={{ width: '100%' }}
           >
-            <Option value="1">Jack</Option>
-            <Option value="2">Lucy</Option>
+            {
+              languages.map(data=>{
+                return (
+                  <Option key={data.value.toString(36)+data.value} value={data.value}>{data.label}</Option>
+                )
+              })
+            }
           </Select>
           <h3>Select your place </h3>
           <label className="valid" >{PlaceState?"Places Select Places":null}</label>
