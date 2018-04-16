@@ -38,8 +38,8 @@ const handleEvent = withHandlers({
     Delete(id)
   },
   onSubmit: props => event=>{
-    const {myplan,DateState,setDateState,NameState,setNameState,PlaceState,setPlaceState} = props;
-    const {appointment,name,place} = myplan;
+    const {myplan,DateState,setDateState,NameState,setNameState,PlaceState,setPlaceState,LangState,setLangState} = props;
+    const {appointment,name,place,languages} = myplan;
     if(!appointment){
        setDateState(!DateState)
     } if(!name){
@@ -48,9 +48,13 @@ const handleEvent = withHandlers({
       setPlaceState(!PlaceState)
     } if(name&&appointment){
     props.CreatTask(myplan)
+    }if(languages.length==0){
+      setLangState(!LangState)
     }
   },
   onSelect:props=>event=>{
+    
+    props.setLangState(false);
   return props.AddLanguages(event);
   }
 });
@@ -73,6 +77,7 @@ const mapDispachToProps = dispatch => {
 export default compose(
   connect(mapStateToProps, mapDispachToProps),
   Lifecycle,
+  LangState,
   DateState,
   NameState,
   PlaceState,

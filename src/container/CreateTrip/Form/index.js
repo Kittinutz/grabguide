@@ -17,6 +17,7 @@ const Form = (props) => {
     onSubmit,
     DateState,
     NameState,
+    LangState,
     AddName,
     PlaceState,
     languages,
@@ -60,6 +61,7 @@ const Form = (props) => {
               })
             }
           </Select>
+          <label className="valid">{LangState?"invalid Languages":null}</label>
           <h3>Select your place </h3>
           <label className="valid" >{PlaceState?"Places Select Places":null}</label>
           <div className="timeline">
