@@ -1,8 +1,9 @@
 ## GRAB GUIDE MOBILE PROJECT PSU
 BY KITTINUTZ
 
-![license]
-(https://img.shields.io/npm/l/express.svg)
+
+![npm](https://img.shields.io/npm/l/express.svg)
+
 
 ````
 $ git clone https://github.com/Kittinutz/grabguide
