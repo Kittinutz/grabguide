@@ -16,7 +16,7 @@ const handleEvent = withHandlers({
     props.history.push('/createtrip/add');
   },
   ChildrenNumber: props => event => {
-  return props.Addchildren(event.target);
+  return props.Addchildren(event);
   },
   AddName:props=>event=>{
     const  value =  event.target.value;

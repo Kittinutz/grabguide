@@ -5,7 +5,7 @@ import {
 import moment from 'moment';
 
 const initailState ={
-  name:false,
+    name:false,
     appointment:false,
     adult:1,
     children:0,
