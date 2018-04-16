@@ -5,7 +5,8 @@ import {
   DELETE_PLACE,
   ADD_CHILDREN,
   ADD_ADULT, ADD_APPOINTMENT,ADD_NAME,
-  FETCH_LANGUAGES
+  FETCH_LANGUAGES,
+  ADD_LANGUAGES
 } from "./api";
 const ROOT_URL = 'http://dev.werapun.com:5011';
 export function addplace(id, callback) {
@@ -17,6 +18,13 @@ export function addplace(id, callback) {
   }
 }
 
+export function AddLanguages(data){
+  return{
+    type:ADD_LANGUAGES,
+    payload:data
+    
+  }
+}
 export function fetchLanguages() {
   return  async dispatch=>{
     const response = await axios.get(`${ROOT_URL}/api/browser/languages`)

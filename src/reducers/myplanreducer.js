@@ -1,10 +1,14 @@
-import {ADD_CHILDREN, ADDTO_ARRAY, DELETE_PLACE, ADD_ADULT, ADD_APPOINTMENT, ADD_NAME} from "../action/api";
+import {
+  ADD_CHILDREN, ADDTO_ARRAY, DELETE_PLACE, ADD_ADULT, ADD_APPOINTMENT, ADD_NAME,
+  ADD_LANGUAGES
+} from "../action/api";
+import moment from 'moment';
 
 const initailState ={
   name:false,
     appointment:false,
     adult:1,
-    children:false,
+    children:0,
     haschilde:false,
     meetinglocation:false,
     place:[],
@@ -19,6 +23,7 @@ export default (state=initailState,action)=>{
       case
           DELETE_PLACE:
         const newPlace =  state.place.filter(data=>data.id!=action.payload);
+        return {...state,place:newPlace}
       case
         ADD_CHILDREN:
         console.log(typeof action.payload)
@@ -32,9 +37,11 @@ export default (state=initailState,action)=>{
       case
         ADD_NAME:
         return {...state,name:action.payload};
+      case
+          ADD_LANGUAGES:
+        return {...state,languages:action.payload}
         
-        
-      return {...state,place:newPlace}
+      
         
         default:
             return state

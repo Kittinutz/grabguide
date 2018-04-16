@@ -37,7 +37,7 @@ const Form = (props) => {
           <Input placeholder="Trip name" style={{width: "50%"}} onChange={AddName}/>
           <label className="valid" >{NameState?"invalid Name":null}</label>
           <label htmlFor="">Date</label>
-          <DatePicker style={{width: "50%"}} onChange={Appointment}/>
+          <DatePicker style={{width: "50%"}}  onChange={Appointment} />
           <label className="valid" >{DateState?"invalid Appointment":null}</label>
           <label htmlFor="">Number of Adult</label>
           <InputNumber name="adult" min={1} max={10} defaultValue={1} onChange={AdultNumber}/>
