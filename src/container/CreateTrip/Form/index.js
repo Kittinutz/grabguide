@@ -19,7 +19,8 @@ const Form = (props) => {
     NameState,
     AddName,
     PlaceState,
-    languages
+    languages,
+    onSelect
   } = props;
   console.log(props)
   const children = [];
@@ -46,8 +47,10 @@ const Form = (props) => {
           <Select
             mode="multiple"
             placeholder="Please select"
-            onChange={handleChange}
+            onChange={(e)=>{onSelect(e)}}
             style={{ width: '100%' }}
+            labelInValue={true}
+            defaultValue={myplan.languages}
           >
             {
               languages.map(data=>{

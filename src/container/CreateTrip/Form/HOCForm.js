@@ -48,8 +48,9 @@ const handleEvent = withHandlers({
     } if(name&&appointment){
     props.CreatTask(myplan)
     }
-   
-    
+  },
+  onSelect:props=>event=>{
+    console.log(event)
   }
 });
 const mapStateToProps = ({myplan,languages}) => {

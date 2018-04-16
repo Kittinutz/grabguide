@@ -8,6 +8,7 @@ const initailState ={
     haschilde:false,
     meetinglocation:false,
     place:[],
+    languages:[]
 }
 export default (state=initailState,action)=>{
     switch (action.type){
