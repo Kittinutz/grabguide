@@ -2,7 +2,9 @@
 BY KITTINUTZ
 
 
-![npm](https://img.shields.io/npm/l/express.svg)
+
+![license](https://img.shields.io/github/license/mashape/apistatus.svg)
+
 
 
 ````
