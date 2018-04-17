@@ -1,6 +1,6 @@
 import {withState, withHandlers, compose,lifecycle} from 'recompose'
 import {bindActionCreators} from 'redux'
-import {Delete,Addchildren,AddAdult,AddAppointment,Addname,CreatTask,fetchLanguages} from "../../../action/addplace";
+import {Delete,Addchildren,AddAdult,AddAppointment,Addname,CreatTask,fetchLanguages,AddLanguages} from "../../../action/addplace";
 import {connect} from 'react-redux'
 const Lifecycle = lifecycle({
   componentDidMount(){
@@ -10,12 +10,13 @@ const Lifecycle = lifecycle({
 const DateState = withState("DateState","setDateState",false);
 const NameState = withState("NameState","setNameState",false);
 const PlaceState = withState("PlaceState","setPlaceState",false);
+const LangState = withState("LangState","setLangState",false);
 const handleEvent = withHandlers({
   Add: props => event => {
     props.history.push('/createtrip/add');
   },
   ChildrenNumber: props => event => {
-  return props.Addchildren(event.target);
+  return props.Addchildren(event);
   },
   AddName:props=>event=>{
     const  value =  event.target.value;
@@ -37,8 +38,8 @@ const handleEvent = withHandlers({
     Delete(id)
   },
   onSubmit: props => event=>{
-    const {myplan,DateState,setDateState,NameState,setNameState,PlaceState,setPlaceState} = props;
-    const {appointment,name,place} = myplan
+    const {myplan,DateState,setDateState,NameState,setNameState,PlaceState,setPlaceState,LangState,setLangState} = props;
+    const {appointment,name,place,languages} = myplan;
     if(!appointment){
        setDateState(!DateState)
     } if(!name){
@@ -47,9 +48,14 @@ const handleEvent = withHandlers({
       setPlaceState(!PlaceState)
     } if(name&&appointment){
     props.CreatTask(myplan)
+    }if(languages.length==0){
+      setLangState(!LangState)
     }
-   
+  },
+  onSelect:props=>event=>{
     
+    props.setLangState(false);
+  return props.AddLanguages(event);
   }
 });
 const mapStateToProps = ({myplan,languages}) => {
@@ -65,12 +71,13 @@ const mapDispachToProps = dispatch => {
     AddAppointment,
     Addname,
     CreatTask,
-    fetchLanguages}, dispatch)
+    fetchLanguages,AddLanguages}, dispatch)
 };
 
 export default compose(
   connect(mapStateToProps, mapDispachToProps),
   Lifecycle,
+  LangState,
   DateState,
   NameState,
   PlaceState,

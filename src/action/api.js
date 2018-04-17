@@ -15,4 +15,5 @@ export const  ADD_CHILDREN = 'add_children';
 export const ADD_ADULT = 'add_adult';
 export const ADD_APPOINTMENT = 'add_appointment';
 export const ADD_NAME = 'add_name';
-export const FETCH_LANGUAGES = 'fetch_languages'
+export const FETCH_LANGUAGES = 'fetch_languages';
+export const ADD_LANGUAGES = 'add_languages';

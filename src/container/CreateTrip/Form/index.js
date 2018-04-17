@@ -17,9 +17,11 @@ const Form = (props) => {
     onSubmit,
     DateState,
     NameState,
+    LangState,
     AddName,
     PlaceState,
-    languages
+    languages,
+    onSelect
   } = props;
   console.log(props)
   const children = [];
@@ -36,7 +38,7 @@ const Form = (props) => {
           <Input placeholder="Trip name" style={{width: "50%"}} onChange={AddName}/>
           <label className="valid" >{NameState?"invalid Name":null}</label>
           <label htmlFor="">Date</label>
-          <DatePicker style={{width: "50%"}} onChange={Appointment}/>
+          <DatePicker style={{width: "50%"}}  onChange={Appointment} />
           <label className="valid" >{DateState?"invalid Appointment":null}</label>
           <label htmlFor="">Number of Adult</label>
           <InputNumber name="adult" min={1} max={10} defaultValue={1} onChange={AdultNumber}/>
@@ -46,8 +48,10 @@ const Form = (props) => {
           <Select
             mode="multiple"
             placeholder="Please select"
-            onChange={handleChange}
+            onChange={(e)=>{onSelect(e)}}
             style={{ width: '100%' }}
+            labelInValue={true}
+            defaultValue={myplan.languages}
           >
             {
               languages.map(data=>{
@@ -57,6 +61,7 @@ const Form = (props) => {
               })
             }
           </Select>
+          <label className="valid">{LangState?"invalid Languages":null}</label>
           <h3>Select your place </h3>
           <label className="valid" >{PlaceState?"Places Select Places":null}</label>
           <div className="timeline">
