@@ -83,13 +83,15 @@ export function Delete(id) {
   }
   
 }
-export function CreatTask(payload){
+export function CreatTask(payload,callback){
   return async dispatch =>{
     const token = localStorage.getItem('token');
     const response = await axios.post(`${ROOT_URL}/createtask`,payload,{
       headers: {
         authorization: token
       }
+    },()=>{
+     return  callback();
     })
     console.log(response);
   }

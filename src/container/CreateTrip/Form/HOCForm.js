@@ -41,15 +41,15 @@ const handleEvent = withHandlers({
     const {myplan,DateState,setDateState,NameState,setNameState,PlaceState,setPlaceState,LangState,setLangState} = props;
     const {appointment,name,place,languages} = myplan;
     if(!appointment){
-       setDateState(!DateState)
+       setDateState(true)
     } if(!name){
-      setNameState(!NameState)
+      setNameState(true)
     } if(place.length==0){
-      setPlaceState(!PlaceState)
-    } if(name&&appointment){
-    props.CreatTask(myplan)
+      setPlaceState(true)
+    } if(name&&appointment&&languages.length>0&&place.length>0){
+    props.CreatTask(myplan,props.history.push('/myplan'))
     }if(languages.length==0){
-      setLangState(!LangState)
+      setLangState(true)
     }
   },
   onSelect:props=>event=>{
