@@ -29,6 +29,7 @@ import {AUTH_USER} from "./action/type";
 import Profile from "./container/Profile/Profile";
 import Myplanselect from "./container/Myplan/Myplanselect";
 import Createtrip from "./container/CreateTrip/index";
+import Mytask from "./container/Mytask/index";
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 const store = createStoreWithMiddleware(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 const token = localStorage.getItem('token');
@@ -50,7 +51,7 @@ ReactDOM.render((
                     <Route path="/profile" component={Profile} />
                     <Route path="/myplan/:id" component={Myplanselect}/>
                     <Route path="/myplan" component={Myplan}/>
-                    <Route path="/express" component={Express}/>
+                    <Route path="/express" component={Mytask}/>
                     <Route path="/" component={Home} />
 
                 </Switch>
