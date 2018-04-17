@@ -1,16 +1,21 @@
 import React from 'react';
 import Header from '../../component/Header/Header'
 import Footer from '../../component/Footer'
-const Mytask = (props)=>{
+import moment from 'moment'
+
+const Mytask = (props) => {
   return (
     <div>
       <Header icon="plus-circle-o"/>
-      <div>
-        Helloworld
+      <div className="content animated fadeIn">
+        <div className="content-header">
+          <h1>My Booking Trips</h1>
+          Card HERE
+        </div>
       </div>
       <Footer/>
     </div>
-    
+  
   )
 }
 export default Mytask
