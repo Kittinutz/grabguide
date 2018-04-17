@@ -28,6 +28,9 @@ const Myplan =(props)=>{
         <div>
             <Header icon="plus-circle-o" handleClick={HandleClickIcon}/>
             <div className="content animated fadeIn">
+              <div className="content-header">
+                <h1>My Booking Trips</h1>
+              </div>
               {
                 _.map(mytrip,data=>{
                   console.log(data)
@@ -51,7 +54,7 @@ const MyplanItem = (props)=>{
     return(
       <Card
         key={id}
-        style={{ width: "100%" ,marginTop:"10%" }}
+        style={{ width: "100%" ,marginTop:"5%",marginBottom:"10%" }}
         cover={<img alt={name} src={trip.image} />}
         actions={[<Link to={`/myplan/${id}`}><Icon type="book" /></Link>, <Icon type="edit" />, <Icon type="ellipsis" />]}
       >

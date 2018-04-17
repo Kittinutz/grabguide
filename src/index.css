@@ -646,3 +646,9 @@ h2 {
   font-size: 1em;
   color: tomato;
 }
+.content-header{
+  padding: 10% 0 0 0;
+}
+.content-header h1{
+  font-size: 1em;
+}
