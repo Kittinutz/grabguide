@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../../component/Header/Header'
 import Footer from '../../component/Footer'
 import moment from 'moment'
-import enhance from 'HOCMytask';
+import enhance from './HOCMytask';
 const Mytask = (props) => {
   return (
     <div>
