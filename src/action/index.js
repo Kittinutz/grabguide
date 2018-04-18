@@ -13,6 +13,7 @@ import {
 } from './api';
 
 const ROOT_URL = 'http://dev.werapun.com:5011';
+const TEST_URL = 'htpp://localhost:5011'
 
 
 export function Gettripapi() {
@@ -108,8 +109,8 @@ export function booking(value, cb) {
     axios.post(`${ROOT_URL}/bookingtrip`,{
       headers:{
         authorization: token,
-      }
-    }, value).then(response => {
+      }, body:value
+    }).then(response => {
       dispatch(
         {
           type: BOOKING_NEWS,
