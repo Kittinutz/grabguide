@@ -104,7 +104,12 @@ export function Step1(value) {
 
 export function booking(value, cb) {
   return dispatch => {
-    axios.post(`${ROOT_URL}/bookingtrip`, value).then(response => {
+    const token = localStorage.getItem('token');
+    axios.post(`${ROOT_URL}/bookingtrip`,{
+      headers:{
+        authorization: token,
+      }
+    }, value).then(response => {
       dispatch(
         {
           type: BOOKING_NEWS,
