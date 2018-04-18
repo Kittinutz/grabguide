@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../../component/Header/Header'
 import Footer from '../../component/Footer'
 import moment from 'moment'
-
+import enhance from './HOCMytask';
 const Mytask = (props) => {
   return (
     <div>
@@ -11,6 +11,7 @@ const Mytask = (props) => {
         <div className="content-header">
           <h1>My Booking Trips</h1>
           Card HERE
+          
         </div>
       </div>
       <Footer/>
@@ -18,4 +19,4 @@ const Mytask = (props) => {
   
   )
 }
-export default Mytask
+export default enhance(Mytask);
