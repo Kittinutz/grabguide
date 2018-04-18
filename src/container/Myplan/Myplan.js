@@ -22,7 +22,7 @@ const { Meta } = Card;
 const Myplan =(props)=>{
     console.log(props)
     const {mytrip,HandleClickIcon} = props;
-    if(mytrip.length>0) {
+   
       return (
     
         <div>
@@ -45,9 +45,7 @@ const Myplan =(props)=>{
             <Footer/>
         </div>
       )
-    }else {
-        return <Spinner/>
-    }
+    
 }
 const MyplanItem = (props)=>{
   const {id,trip,name} = props
