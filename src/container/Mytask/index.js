@@ -38,7 +38,7 @@ const Mytask = (props) => {
   }
 }
 const MyTaskItem = (props) => {
-  const {id, trip, name, profile} = props
+  const {id, name,appointment, numberofperson, profile,languages,places} = props
   return (
     <Card
       key={id}
@@ -50,16 +50,22 @@ const MyTaskItem = (props) => {
         title={name}
         description={
           <div>
-            <p>Task Id : {props.id}</p>
-            <p>Appointment: {props.appointment}</p>
-            <p>NumberofPerson: {props.numberofperson}</p>
+            <p>Task Id : {id}</p>
+            <p>Appointment: {appointment}</p>
+            <p>NumberofPerson: {numberofperson}</p>
             <p>Places:</p>
             <div>
-              {props.places.map(data => {
-                return <Tag key={data.id + data.id.toString(36)} color="magenta">{data.name}</Tag>
+              {places.map(data => {
+                return <Tag key={data.id + data.id.toString(36)} color="#108ee9">{data.name}</Tag>
               })}
             </div>
             <p>Languages:</p>
+            <div>
+              {props.languages.map(data => {
+                return <Tag key={data.name + data.name.toString(36)} color="#108ee9">{data.name}</Tag>
+              })
+              }
+            </div>
           </div>
         }
       />
