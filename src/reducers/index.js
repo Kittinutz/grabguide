@@ -11,6 +11,7 @@ import status from './status'
 import authentication from './authentication'
 import myplan from './myplanreducer'
 import languages from './languagesreducer'
+import mytasks from './tasksreducer';
 
 const rootReducers = combineReducers({
   trips: tripreducer,
@@ -24,7 +25,8 @@ const rootReducers = combineReducers({
   authentication,
   bookingtripid,
   myplan,
-  languages
+  languages,
+  mytasks
   
 });
 export default rootReducers;

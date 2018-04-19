@@ -64,7 +64,7 @@ const mapStateToProps = ({myplan,languages}) => {
     languages,
   }
 };
-const mapDispachToProps = dispatch => {
+const mapDispatchToProps = dispatch => {
   return bindActionCreators({Delete,
     Addchildren,
     AddAdult,
@@ -75,7 +75,7 @@ const mapDispachToProps = dispatch => {
 };
 
 export default compose(
-  connect(mapStateToProps, mapDispachToProps),
+  connect(mapStateToProps, mapDispatchToProps),
   Lifecycle,
   LangState,
   DateState,

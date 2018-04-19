@@ -4,6 +4,7 @@ import Footer from '../../component/Footer'
 import moment from 'moment'
 import enhance from './HOCMytask';
 const Mytask = (props) => {
+  console.log(props);
   return (
     <div>
       <Header icon="plus-circle-o"/>
