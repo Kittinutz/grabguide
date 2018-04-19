@@ -4,11 +4,14 @@ import {bindActionCreators} from "redux";
 import firebase from 'firebase';
 import{signup} from '../../action/Authentication';
 import {provider,auth} from "../../firebase";
-
+import {fetchmessage} from '../../action/Authentication';
 const Lifecycle = lifecycle({
-
+    componentDidMount(){
+      this.props.fetchmessage();
+    },
     componentWillReceiveProps(nextProps){
        if(nextProps.authentication.isAuth){
+         this.props.fetchmessage();
            return this.props.history.goBack();
        }
     }
@@ -39,7 +42,7 @@ const mapStateToProps = ({bookingdetail,authentication})=>{
     }
 }
 const mapDispatchToProps = dispatch => {
-    return bindActionCreators({signup}, dispatch);
+    return bindActionCreators({signup,fetchmessage}, dispatch);
 };
 export default compose(
     connect(mapStateToProps,mapDispatchToProps),
