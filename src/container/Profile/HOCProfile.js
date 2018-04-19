@@ -2,7 +2,14 @@ import {withState, compose, withHandlers, lifecycle} from 'recompose'
 import {Logout} from "../../action/Authentication";
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
-
+const Lifecycle = lifecycle({
+  componentDidMount(){
+    // const {id} = this.props.match.params;
+    if (!this.props.authentication.isAuth) {
+      return this.props.history.push(`/login/facebook`);
+    }
+  }
+})
 const handleEvent = withHandlers({
   handleLogout:props=>event=>{
     const {Logout,history} = props;
@@ -22,5 +29,6 @@ const mapDispatchToProps = dispatch => {
 
 export default compose(
   connect(mapStateToProps,mapDispatchToProps),
+  Lifecycle,
   handleEvent,
 )

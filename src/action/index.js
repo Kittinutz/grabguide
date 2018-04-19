@@ -106,7 +106,7 @@ export function Step1(value) {
 export function booking(value, cb) {
   return dispatch => {
     const token = localStorage.getItem('token');
-    axios.post(`${TEST_URL}/bookingtrip`,value,{
+    axios.post(`${ROOT_URL}/bookingtrip`,value,{
       headers: {
         authorization: token
       }

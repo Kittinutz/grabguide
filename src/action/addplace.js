@@ -1,14 +1,17 @@
-import axios from  'axios'
+import axios from 'axios'
 import {
   ADDTO_ARRAY,
   FILTER_PLACE,
   DELETE_PLACE,
   ADD_CHILDREN,
-  ADD_ADULT, ADD_APPOINTMENT,ADD_NAME,
+  ADD_ADULT, ADD_APPOINTMENT, ADD_NAME,
   FETCH_LANGUAGES,
-  ADD_LANGUAGES
+  ADD_LANGUAGES,
+  FETCH_OWNTASKS
 } from "./api";
+
 const ROOT_URL = 'http://dev.werapun.com:5011';
+
 export function addplace(id, callback) {
   return dispatch => {
     dispatch({
@@ -18,23 +21,25 @@ export function addplace(id, callback) {
   }
 }
 
-export function AddLanguages(data){
-  return{
-    type:ADD_LANGUAGES,
-    payload:data
+export function AddLanguages(data) {
+  return {
+    type: ADD_LANGUAGES,
+    payload: data
     
   }
 }
+
 export function fetchLanguages() {
-  return  async dispatch=>{
+  return async dispatch => {
     const response = await axios.get(`${ROOT_URL}/api/browser/languages`)
     dispatch({
-      type:FETCH_LANGUAGES,
-      payload:response.data
+      type: FETCH_LANGUAGES,
+      payload: response.data
     })
   }
   
 }
+
 export function addtoarray(payload, callback) {
   return dispatch => {
     dispatch({
@@ -53,6 +58,7 @@ export function Addchildren(number) {
     })
   }
 }
+
 export function AddAdult(number) {
   return dispatch => {
     dispatch({
@@ -61,19 +67,22 @@ export function AddAdult(number) {
     })
   }
 }
+
 export function Addname(value) {
   return {
-    type:ADD_NAME,
-    payload:value
+    type: ADD_NAME,
+    payload: value
   }
 }
+
 export function AddAppointment(data) {
   return {
     type: ADD_APPOINTMENT,
-    payload:data
+    payload: data
   }
   
 }
+
 export function Delete(id) {
   return dispatch => {
     dispatch({
@@ -83,16 +92,32 @@ export function Delete(id) {
   }
   
 }
-export function CreatTask(payload,callback){
-  return async dispatch =>{
+
+export function CreatTask(payload, callback) {
+  return async dispatch => {
     const token = localStorage.getItem('token');
-    const response = await axios.post(`${ROOT_URL}/createtask`,payload,{
+    const response = await axios.post(`${ROOT_URL}/createtask`, payload, {
       headers: {
         authorization: token
       }
-    },()=>{
-     return  callback();
+    }, () => {
+      return callback();
     })
     console.log(response);
+  }
+}
+
+export function GetTask() {
+  return async dispatch => {
+    const token = localStorage.getItem('token');
+    const response = await  axios.post(`${ROOT_URL}/getowntask`,null,{
+      headers:{
+        authorization: token
+      }
+    });
+    dispatch({
+      type: FETCH_OWNTASKS,
+      payload: response.data
+    })
   }
 }

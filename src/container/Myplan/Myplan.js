@@ -10,12 +10,8 @@ import {
      DatePicker,Card,Avatar,Icon
 } from 'antd';
 import {Link} from 'react-router-dom'
-import Spinner from "../../component/Spinner/index";
-const {MonthPicker, RangePicker, WeekPicker} = DatePicker;
-const FormItem = Form.Item;
-const Option = Select.Option;
-const RadioButton = Radio.Button;
-const RadioGroup = Radio.Group;
+
+
 const { Meta } = Card;
 
 
