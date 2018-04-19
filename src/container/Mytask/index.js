@@ -10,7 +10,6 @@ const Mytask = (props) => {
       <div className="content animated fadeIn">
         <div className="content-header">
           <h1>My Booking Trips</h1>
-          Card HERE
           
         </div>
       </div>
