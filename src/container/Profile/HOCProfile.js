@@ -1,5 +1,5 @@
 import {withState, compose, withHandlers, lifecycle} from 'recompose'
-import {Logout} from "../../action/Authentication";
+import {Logout,fetchmessage} from "../../action/Authentication";
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
 const Lifecycle = lifecycle({
@@ -7,6 +7,8 @@ const Lifecycle = lifecycle({
     // const {id} = this.props.match.params;
     if (!this.props.authentication.isAuth) {
       return this.props.history.push(`/login/facebook`);
+    }else{
+      this.props.fetchmessage();
     }
   }
 })
@@ -24,7 +26,7 @@ const mapStateToProps = ({authentication})=>{
 }
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({Logout}, dispatch);
+  return bindActionCreators({Logout,fetchmessage}, dispatch);
 };
 
 export default compose(

@@ -7,7 +7,10 @@ import {provider,auth} from "../../firebase";
 import {fetchmessage} from '../../action/Authentication';
 const Lifecycle = lifecycle({
     componentDidMount(){
-      this.props.fetchmessage();
+      if(this.props.authentication.isAuth){
+        this.props.fetchmessage();
+      }
+      
     },
     componentWillReceiveProps(nextProps){
        if(nextProps.authentication.isAuth){
