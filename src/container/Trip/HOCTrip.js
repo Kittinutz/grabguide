@@ -6,7 +6,6 @@ import {bindActionCreators} from "redux";
 const Lifecycle = lifecycle(
     {
         componentDidMount() {
-            console.log(this.props);
             const {id} = this.props.match.params;
             this.props.SelectedTrip(id)
         }

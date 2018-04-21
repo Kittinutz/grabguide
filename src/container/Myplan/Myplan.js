@@ -16,7 +16,7 @@ const { Meta } = Card;
 
 
 const Myplan =(props)=>{
-    console.log(props)
+
     const {mytrip,HandleClickIcon} = props;
    
       return (
@@ -29,7 +29,6 @@ const Myplan =(props)=>{
               </div>
               {
                 _.map(mytrip,data=>{
-                  console.log(data)
                   return(
                   <MyplanItem key={data.id} {...data}/>
               
@@ -63,82 +62,4 @@ const MyplanItem = (props)=>{
 }
 export default enhance(Myplan)
 
-// class Myplan extends Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             place: [],
-//             plus: false,
-//         }
-//     }
 //
-//     componentWillMount() {
-//     =
-//         this.props.GetActivitiesAPi();
-//         this.props.querybooking();
-//
-//     };
-//
-//
-//     HandleClickIcon = () => {
-//         this.props.history.push('/createtrip/')
-//     };
-//
-//     render() {
-//         console.log(this.props);
-//
-//         if (this.props.mytrip) {
-//             return (
-//
-//                 <div>
-//                     <Header icon="plus-circle-o" handleClick={this.HandleClickIcon}/>
-//                     <div className="content">
-//                         {
-//                             _.map(this.props.mytrip,data=>{
-//                                 console.log(data)
-//                                 return(
-//                                     <Card
-//                                         key={data.id}
-//                                         style={{ width: "100%" ,marginTop:"10%" }}
-//                                         cover={<img alt={data.name} src={data.trip.image} />}
-//                                         actions={[<Link to={`/myplan/${data.id}`}><Icon type="book" /></Link>, <Icon type="edit" />, <Icon type="ellipsis" />]}
-//                                     >
-//                                         <Meta
-//                                             avatar={<Avatar src={data.trip.guide.image} />}
-//                                             title={data.trip.name}
-//                                             description={data.trip.description}
-//                                         />
-//                                     </Card>
-//
-//                                 )
-//                             })
-//
-//                         }
-//                     </div>
-//                     <Footer/>
-//                 </div>
-//             )
-//         } else {
-//             return (
-//                 <div>
-//                     <Header icon="plus-circle-o" handleClick={this.HandleClickIcon}/>
-//                     <div className="content">
-//                         <div className="container">
-//
-//                         </div>
-//                     </div>
-//                     <Footer/>
-//                 </div>
-//             )
-//         }
-//     }
-// }
-//
-// function mapStateToProps({place, activities, mytrip}) {
-//     return {
-//         mytrip
-//     }
-//
-// }
-//
-// export default connect(mapStateToProps, actions)(Myplan);
