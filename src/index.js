@@ -30,6 +30,7 @@ import Profile from "./container/Profile/Profile";
 import Myplanselect from "./container/Myplan/Myplanselect";
 import Createtrip from "./container/CreateTrip/index";
 import Mytask from "./container/Mytask/index";
+import Chatlist from './container/Chat/ChatList';
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 const store = createStoreWithMiddleware(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 const token = localStorage.getItem('token');
@@ -43,7 +44,7 @@ ReactDOM.render((
         <BrowserRouter>
             <HashRouter>
                 <Switch>
-
+                    <Route path="/chat" component={Chatlist}/>
                     <Route path="/createtrip" component={Createtrip} />
                     <Route path="/login/facebook" component={FaceBook} />
                     <Route path="/booking/trip/:id" component={Bookingtrip}/>
