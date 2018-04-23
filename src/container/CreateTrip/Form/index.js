@@ -3,9 +3,6 @@ import enhance from './HOCForm';
 import {Timeline, Input, InputNumber, Button, Icon, DatePicker,Select} from 'antd'
 const Option = Select.Option;
 
-function handleChange(value) {
-  console.log(`Selected: ${value}`);
-}
 const Form = (props) => {
   const {
     myplan,
@@ -23,7 +20,6 @@ const Form = (props) => {
     languages,
     onSelect
   } = props;
-  console.log(props)
   const children = [];
   for (let i = 10; i < 36; i++) {
     children.push(<Option key={i.toString(36) + i} value={i}>{i.toString(36) + i}</Option>);
@@ -84,7 +80,6 @@ const Form = (props) => {
 };
 const Timelineitem = (props) => {
   const {image, name, id, Deleteplace} = props;
-  console.log(props)
   return (
     <Timeline.Item>
       <div className="card-trip">

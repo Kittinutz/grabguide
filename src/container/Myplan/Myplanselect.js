@@ -12,7 +12,6 @@ const Myplanselect = (props) => {
    const newdate = dateformat(bookingtripid.appointment,"dddd,mmmm.dS");
    const {trip} = bookingtripid
     if(bookingtripid.trip) {
-       console.log(props)
         return (
             <div>
                 <Header {...props}/>

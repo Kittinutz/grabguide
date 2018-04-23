@@ -10,7 +10,6 @@ import authentication from "../../reducers/authentication";
 const Lifecycle = lifecycle(
   {
     componentDidMount() {
-      console.log(this.props);
       // const {id} = this.props.match.params;
       if (!this.props.authentication.isAuth) {
         return this.props.history.push(`/login/facebook`);

@@ -14,7 +14,7 @@ const Step = Steps.Step;
 
 const Bookingtrip = (props) => {
   const {authentication, bookingdetail, current, next, prev, SendToserver} = props;
-  console.log(props);
+
   const steps = [{
     title: 'Booking',
     content: <Step1/>,
