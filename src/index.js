@@ -30,7 +30,7 @@ import Profile from "./container/Profile/Profile";
 import Myplanselect from "./container/Myplan/Myplanselect";
 import Createtrip from "./container/CreateTrip/index";
 import Mytask from "./container/Mytask/index";
-import Chatlist from './container/Chat/ChatList';
+import Chatlist from './component/Chat/ChatList';
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 const store = createStoreWithMiddleware(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 const token = localStorage.getItem('token');
