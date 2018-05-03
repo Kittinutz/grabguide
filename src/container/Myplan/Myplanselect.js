@@ -4,7 +4,7 @@ import Footer from '../../component/Footer'
 import enhance from './HOCMyplanselect'
 import dateformat from 'dateformat';
 import _ from 'lodash'
-import {Tabs, Radio} from 'antd';
+import {Tabs, Tag} from 'antd';
 import Chat from '../../component/Chat/ChatList';
 
 const TabPane = Tabs.TabPane;
@@ -14,6 +14,7 @@ const Myplanselect = (props) => {
   const date = "03-11-2014";
   const newdate = dateformat(bookingtripid.appointment, "dddd,mmmm.dS");
   const {trip} = bookingtripid
+  console.log(props);
   if (bookingtripid.trip) {
     return (
       <div>
@@ -21,7 +22,6 @@ const Myplanselect = (props) => {
         <Chat guide={trip.guide.name} avatar={trip.guide.image}/>
         <div className="content">
           <div className="container">
-            <h3>Trip on {newdate}</h3>
             <div className="trip-image">
               <img className="img"
                    style={{backgroundImage: `url(${trip.image})`}}
@@ -60,10 +60,18 @@ const Myplanselect = (props) => {
                 tabPosition={mode}
                 style={{height: "10%"}}
               >
-                <TabPane tab="Booking" key="1">Content of tab 1</TabPane>
-                <TabPane tab="Detail" key="2">Content of tab 2</TabPane>
-                <TabPane tab="Chat" key="3">Content of tab 3</TabPane>
-                <TabPane tab="Tester3" key="4">Content of tab 4</TabPane>
+                <TabPane tab="Booking" key="1">
+                  <div className="tab-booking">
+                    <p>Appointment : {newdate}</p>
+                    <p>Location: Rabbitmansion</p>
+                    <p>Number of Person:{bookingtripid.numberofAdult}</p>
+                    <p>Number of Children:{bookingtripid.numberofchilde}</p>
+                    <p>Price:{bookingtripid.price} THB</p>
+                    {bookingtripid.trip.places.map(data => {
+                      return <Tag key={data.id + data.id.toString(36)} color="#108ee9">{data.name}</Tag>
+                    })}
+                  </div>
+                </TabPane>
               </Tabs>
             </div>
           
