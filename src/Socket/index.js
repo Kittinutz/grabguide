@@ -1,5 +1,6 @@
 import openSocket from 'socket.io-client';
-const testsocket =openSocket.connect(`http://localhost:5012`);
+const server = 'http://dev.werapun.com:5012';
+const testsocket =openSocket.connect(`${server}`);
 
 function ReceiveMessage(name,callback) {
   testsocket.on(name,(data)=>{
